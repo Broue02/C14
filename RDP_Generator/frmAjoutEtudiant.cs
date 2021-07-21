@@ -57,5 +57,56 @@ namespace RDP_Generator
         {
 
         }
+
+        private void cmdOK_Click(object sender, EventArgs e)
+        {
+            FormCollection fc = Application.OpenForms;
+
+            foreach( Form f in fc)
+            {
+                if (f.Name == "frmMain")
+                {
+                    frmMain fm = (frmMain)f;
+
+                    /*if (Valider_Form() == false)
+                        return;*/
+
+                    string Da, Courriel, Ordinateur;
+
+                    Da = txtDA.Text.Trim();
+                    Courriel = txtCourriel.Text.Trim();
+                    Ordinateur = txtOrdinateur.Text.Trim();
+
+                    Etudiant etu = new Etudiant(Da, Courriel, Ordinateur);
+
+                    
+                }
+            }
+        }
+
+        private bool Valider_Form()
+        {
+            bool ok = true;
+
+            if (txtDA.Text.Trim() == "")
+            {
+                erp.SetError(txtDA, "Da obligatoire");
+                ok = false;
+            }
+
+            if (txtCourriel.Text.Trim() == "")
+            {
+                erp.SetError(txtCourriel, "Courriel obligatoire");
+                ok = false;
+            }
+
+            if (txtOrdinateur.Text.Trim() == "")
+            {
+                erp.SetError(txtOrdinateur, "nom de l'ordinateur Obligatoire");
+                ok = false;
+            }
+
+            return ok;
+        }
     }
 }

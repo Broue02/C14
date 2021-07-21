@@ -29,6 +29,7 @@ namespace RDP_Generator
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitre = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
@@ -40,19 +41,21 @@ namespace RDP_Generator
             this.button1 = new System.Windows.Forms.Button();
             this.lblHeader = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.txtCourriel = new System.Windows.Forms.TextBox();
             this.lblOrdinateur = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtOrdinateur = new System.Windows.Forms.TextBox();
             this.lblCourriel = new System.Windows.Forms.Label();
             this.lblDA = new System.Windows.Forms.Label();
             this.txtDA = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cmdAnnuler = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmdOK = new System.Windows.Forms.Button();
+            this.erp = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel16.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pnlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erp)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitre
@@ -193,21 +196,30 @@ namespace RDP_Generator
             // 
             this.pnlMain.BackColor = System.Drawing.Color.Snow;
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMain.Controls.Add(this.textBox1);
+            this.pnlMain.Controls.Add(this.txtCourriel);
             this.pnlMain.Controls.Add(this.lblOrdinateur);
-            this.pnlMain.Controls.Add(this.textBox2);
+            this.pnlMain.Controls.Add(this.txtOrdinateur);
             this.pnlMain.Controls.Add(this.lblCourriel);
             this.pnlMain.Controls.Add(this.lblDA);
             this.pnlMain.Controls.Add(this.txtDA);
             this.pnlMain.Controls.Add(this.panel4);
             this.pnlMain.Controls.Add(this.cmdAnnuler);
-            this.pnlMain.Controls.Add(this.button2);
+            this.pnlMain.Controls.Add(this.cmdOK);
             this.pnlMain.Controls.Add(this.pnlHeader);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(598, 273);
             this.pnlMain.TabIndex = 5;
+            // 
+            // txtCourriel
+            // 
+            this.txtCourriel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCourriel.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.txtCourriel.Location = new System.Drawing.Point(201, 112);
+            this.txtCourriel.Name = "txtCourriel";
+            this.txtCourriel.Size = new System.Drawing.Size(348, 35);
+            this.txtCourriel.TabIndex = 52;
             // 
             // lblOrdinateur
             // 
@@ -219,14 +231,14 @@ namespace RDP_Generator
             this.lblOrdinateur.TabIndex = 51;
             this.lblOrdinateur.Text = "Ordinateur:";
             // 
-            // textBox2
+            // txtOrdinateur
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.textBox2.Location = new System.Drawing.Point(201, 157);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(348, 35);
-            this.textBox2.TabIndex = 50;
+            this.txtOrdinateur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtOrdinateur.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.txtOrdinateur.Location = new System.Drawing.Point(201, 157);
+            this.txtOrdinateur.Name = "txtOrdinateur";
+            this.txtOrdinateur.Size = new System.Drawing.Size(348, 35);
+            this.txtOrdinateur.TabIndex = 50;
             // 
             // lblCourriel
             // 
@@ -284,29 +296,25 @@ namespace RDP_Generator
             this.cmdAnnuler.UseVisualStyleBackColor = false;
             this.cmdAnnuler.Click += new System.EventHandler(this.cmdAnnuler_Click);
             // 
-            // button2
+            // cmdOK
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(156)))), ((int)(((byte)(100)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Snow;
-            this.button2.Location = new System.Drawing.Point(473, 227);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 36);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "OK";
-            this.button2.UseVisualStyleBackColor = false;
+            this.cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(156)))), ((int)(((byte)(100)))));
+            this.cmdOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdOK.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdOK.ForeColor = System.Drawing.Color.Snow;
+            this.cmdOK.Location = new System.Drawing.Point(473, 227);
+            this.cmdOK.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdOK.Name = "cmdOK";
+            this.cmdOK.Size = new System.Drawing.Size(101, 36);
+            this.cmdOK.TabIndex = 25;
+            this.cmdOK.Text = "OK";
+            this.cmdOK.UseVisualStyleBackColor = false;
+            this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
             // 
-            // textBox1
+            // erp
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.textBox1.Location = new System.Drawing.Point(201, 112);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(348, 35);
-            this.textBox1.TabIndex = 52;
+            this.erp.ContainerControl = this;
             // 
             // frmAjoutEtudiant
             // 
@@ -325,6 +333,7 @@ namespace RDP_Generator
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -339,7 +348,7 @@ namespace RDP_Generator
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button cmdOK;
         private System.Windows.Forms.Button cmdAnnuler;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Panel panel2;
@@ -348,8 +357,9 @@ namespace RDP_Generator
         private System.Windows.Forms.Label lblDA;
         private System.Windows.Forms.TextBox txtDA;
         private System.Windows.Forms.Label lblOrdinateur;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtOrdinateur;
+        private System.Windows.Forms.TextBox txtCourriel;
+        private System.Windows.Forms.ErrorProvider erp;
     }
 }
 
