@@ -34,35 +34,35 @@ namespace RDP_Generator
             this.button9 = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.picLogo = new System.Windows.Forms.PictureBox();
             this.cmdMinimiser = new System.Windows.Forms.Button();
             this.cmdQuitter = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblHeader = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.cmdAnnuler = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.cmdAjouter = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.cmdDefaut = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
+            this.txtDomaine = new System.Windows.Forms.TextBox();
+            this.lblDomaine = new System.Windows.Forms.Label();
+            this.cmdSupprimer = new System.Windows.Forms.Button();
+            this.cmdEnregistrer = new System.Windows.Forms.Button();
+            this.lblConfigLV = new System.Windows.Forms.Label();
+            this.lvConfigs = new System.Windows.Forms.ListView();
             this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_valeur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.picLogo = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cmdParcourir = new System.Windows.Forms.Button();
+            this.lblConfig = new System.Windows.Forms.Label();
+            this.txtConfig = new System.Windows.Forms.TextBox();
+            this.cmdAnnuler = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.cmdAjouter = new System.Windows.Forms.Button();
+            this.cmdOk = new System.Windows.Forms.Button();
             this.panel16.SuspendLayout();
             this.pnlHeader.SuspendLayout();
-            this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitre
@@ -129,6 +129,16 @@ namespace RDP_Generator
             this.panel2.TabIndex = 41;
             this.panel2.Tag = "div";
             // 
+            // picLogo
+            // 
+            this.picLogo.Image = global::RDP_Generator.Properties.Resources.logo_trans;
+            this.picLogo.Location = new System.Drawing.Point(4, 2);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(45, 40);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogo.TabIndex = 35;
+            this.picLogo.TabStop = false;
+            // 
             // cmdMinimiser
             // 
             this.cmdMinimiser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -193,22 +203,22 @@ namespace RDP_Generator
             // 
             this.pnlMain.BackColor = System.Drawing.Color.Snow;
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMain.Controls.Add(this.button7);
+            this.pnlMain.Controls.Add(this.cmdDefaut);
             this.pnlMain.Controls.Add(this.label6);
-            this.pnlMain.Controls.Add(this.textBox4);
-            this.pnlMain.Controls.Add(this.label5);
-            this.pnlMain.Controls.Add(this.button3);
-            this.pnlMain.Controls.Add(this.button5);
-            this.pnlMain.Controls.Add(this.label3);
-            this.pnlMain.Controls.Add(this.listView1);
+            this.pnlMain.Controls.Add(this.txtDomaine);
+            this.pnlMain.Controls.Add(this.lblDomaine);
+            this.pnlMain.Controls.Add(this.cmdSupprimer);
+            this.pnlMain.Controls.Add(this.cmdEnregistrer);
+            this.pnlMain.Controls.Add(this.lblConfigLV);
+            this.pnlMain.Controls.Add(this.lvConfigs);
             this.pnlMain.Controls.Add(this.panel1);
-            this.pnlMain.Controls.Add(this.button8);
-            this.pnlMain.Controls.Add(this.label1);
-            this.pnlMain.Controls.Add(this.textBox1);
+            this.pnlMain.Controls.Add(this.cmdParcourir);
+            this.pnlMain.Controls.Add(this.lblConfig);
+            this.pnlMain.Controls.Add(this.txtConfig);
             this.pnlMain.Controls.Add(this.cmdAnnuler);
             this.pnlMain.Controls.Add(this.panel4);
             this.pnlMain.Controls.Add(this.cmdAjouter);
-            this.pnlMain.Controls.Add(this.button2);
+            this.pnlMain.Controls.Add(this.cmdOk);
             this.pnlMain.Controls.Add(this.pnlHeader);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
@@ -216,31 +226,117 @@ namespace RDP_Generator
             this.pnlMain.Size = new System.Drawing.Size(598, 665);
             this.pnlMain.TabIndex = 5;
             // 
-            // label3
+            // cmdDefaut
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label3.Location = new System.Drawing.Point(11, 191);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 25);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "Configurations";
+            this.cmdDefaut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
+            this.cmdDefaut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdDefaut.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdDefaut.ForeColor = System.Drawing.Color.Snow;
+            this.cmdDefaut.Location = new System.Drawing.Point(362, 180);
+            this.cmdDefaut.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdDefaut.Name = "cmdDefaut";
+            this.cmdDefaut.Size = new System.Drawing.Size(101, 36);
+            this.cmdDefaut.TabIndex = 54;
+            this.cmdDefaut.Text = "Défauts";
+            this.cmdDefaut.UseVisualStyleBackColor = false;
             // 
-            // listView1
+            // label6
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(60, 143);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 15);
+            this.label6.TabIndex = 53;
+            this.label6.Text = "(Optionnel)";
+            // 
+            // txtDomaine
+            // 
+            this.txtDomaine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDomaine.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.txtDomaine.Location = new System.Drawing.Point(189, 116);
+            this.txtDomaine.Name = "txtDomaine";
+            this.txtDomaine.Size = new System.Drawing.Size(348, 35);
+            this.txtDomaine.TabIndex = 52;
+            // 
+            // lblDomaine
+            // 
+            this.lblDomaine.AutoSize = true;
+            this.lblDomaine.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblDomaine.Location = new System.Drawing.Point(19, 122);
+            this.lblDomaine.Name = "lblDomaine";
+            this.lblDomaine.Size = new System.Drawing.Size(169, 25);
+            this.lblDomaine.TabIndex = 50;
+            this.lblDomaine.Text = "Nom de Domaine:";
+            // 
+            // cmdSupprimer
+            // 
+            this.cmdSupprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.cmdSupprimer.Enabled = false;
+            this.cmdSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdSupprimer.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSupprimer.ForeColor = System.Drawing.Color.Snow;
+            this.cmdSupprimer.Location = new System.Drawing.Point(464, 547);
+            this.cmdSupprimer.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdSupprimer.Name = "cmdSupprimer";
+            this.cmdSupprimer.Size = new System.Drawing.Size(111, 36);
+            this.cmdSupprimer.TabIndex = 45;
+            this.cmdSupprimer.Text = "Supprimer";
+            this.cmdSupprimer.UseVisualStyleBackColor = false;
+            // 
+            // cmdEnregistrer
+            // 
+            this.cmdEnregistrer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
+            this.cmdEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdEnregistrer.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdEnregistrer.ForeColor = System.Drawing.Color.Snow;
+            this.cmdEnregistrer.Location = new System.Drawing.Point(24, 617);
+            this.cmdEnregistrer.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdEnregistrer.Name = "cmdEnregistrer";
+            this.cmdEnregistrer.Size = new System.Drawing.Size(133, 36);
+            this.cmdEnregistrer.TabIndex = 43;
+            this.cmdEnregistrer.Text = "Enregistrer";
+            this.cmdEnregistrer.UseVisualStyleBackColor = false;
+            // 
+            // lblConfigLV
+            // 
+            this.lblConfigLV.AutoSize = true;
+            this.lblConfigLV.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.lblConfigLV.Location = new System.Drawing.Point(11, 191);
+            this.lblConfigLV.Name = "lblConfigLV";
+            this.lblConfigLV.Size = new System.Drawing.Size(139, 25);
+            this.lblConfigLV.TabIndex = 42;
+            this.lblConfigLV.Text = "Configurations";
+            // 
+            // lvConfigs
+            // 
+            this.lvConfigs.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.col_name,
             this.col_type,
             this.col_valeur});
-            this.listView1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(24, 219);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(551, 325);
-            this.listView1.TabIndex = 41;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvConfigs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvConfigs.GridLines = true;
+            this.lvConfigs.HideSelection = false;
+            this.lvConfigs.Location = new System.Drawing.Point(24, 219);
+            this.lvConfigs.Name = "lvConfigs";
+            this.lvConfigs.Size = new System.Drawing.Size(551, 325);
+            this.lvConfigs.TabIndex = 41;
+            this.lvConfigs.UseCompatibleStateImageBehavior = false;
+            this.lvConfigs.View = System.Windows.Forms.View.Details;
+            // 
+            // col_name
+            // 
+            this.col_name.Text = "Configuration";
+            this.col_name.Width = 280;
+            // 
+            // col_type
+            // 
+            this.col_type.Text = "Type";
+            // 
+            // col_valeur
+            // 
+            this.col_valeur.Text = "Valeur";
+            this.col_valeur.Width = 200;
             // 
             // panel1
             // 
@@ -253,38 +349,38 @@ namespace RDP_Generator
             this.panel1.TabIndex = 38;
             this.panel1.Tag = "div";
             // 
-            // button8
+            // cmdParcourir
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.Snow;
-            this.button8.Location = new System.Drawing.Point(541, 71);
-            this.button8.Margin = new System.Windows.Forms.Padding(0);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(34, 36);
-            this.button8.TabIndex = 37;
-            this.button8.Text = "..";
-            this.button8.UseVisualStyleBackColor = false;
+            this.cmdParcourir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
+            this.cmdParcourir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdParcourir.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdParcourir.ForeColor = System.Drawing.Color.Snow;
+            this.cmdParcourir.Location = new System.Drawing.Point(541, 71);
+            this.cmdParcourir.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdParcourir.Name = "cmdParcourir";
+            this.cmdParcourir.Size = new System.Drawing.Size(34, 36);
+            this.cmdParcourir.TabIndex = 37;
+            this.cmdParcourir.Text = "..";
+            this.cmdParcourir.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // lblConfig
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(28, 78);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 25);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Configuration:";
+            this.lblConfig.AutoSize = true;
+            this.lblConfig.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblConfig.Location = new System.Drawing.Point(28, 78);
+            this.lblConfig.Name = "lblConfig";
+            this.lblConfig.Size = new System.Drawing.Size(136, 25);
+            this.lblConfig.TabIndex = 36;
+            this.lblConfig.Text = "Configuration:";
             // 
-            // textBox1
+            // txtConfig
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.textBox1.Location = new System.Drawing.Point(189, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(348, 35);
-            this.textBox1.TabIndex = 31;
+            this.txtConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtConfig.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.txtConfig.Location = new System.Drawing.Point(189, 72);
+            this.txtConfig.Name = "txtConfig";
+            this.txtConfig.Size = new System.Drawing.Size(348, 35);
+            this.txtConfig.TabIndex = 31;
             // 
             // cmdAnnuler
             // 
@@ -328,116 +424,20 @@ namespace RDP_Generator
             this.cmdAjouter.UseVisualStyleBackColor = false;
             this.cmdAjouter.Click += new System.EventHandler(this.cmdAjouter_Click);
             // 
-            // button2
+            // cmdOk
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(156)))), ((int)(((byte)(100)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Snow;
-            this.button2.Location = new System.Drawing.Point(474, 617);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 36);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "OK";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Snow;
-            this.button5.Location = new System.Drawing.Point(24, 617);
-            this.button5.Margin = new System.Windows.Forms.Padding(0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(133, 36);
-            this.button5.TabIndex = 43;
-            this.button5.Text = "Enregistrer";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.button3.Enabled = false;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Snow;
-            this.button3.Location = new System.Drawing.Point(464, 547);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(111, 36);
-            this.button3.TabIndex = 45;
-            this.button3.Text = "Supprimer";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // textBox4
-            // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.textBox4.Location = new System.Drawing.Point(189, 116);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(348, 35);
-            this.textBox4.TabIndex = 52;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(19, 122);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(169, 25);
-            this.label5.TabIndex = 50;
-            this.label5.Text = "Nom de Domaine:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(60, 143);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 15);
-            this.label6.TabIndex = 53;
-            this.label6.Text = "(Optionnel)";
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.Snow;
-            this.button7.Location = new System.Drawing.Point(362, 180);
-            this.button7.Margin = new System.Windows.Forms.Padding(0);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(101, 36);
-            this.button7.TabIndex = 54;
-            this.button7.Text = "Défauts";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // col_name
-            // 
-            this.col_name.Text = "Configuration";
-            this.col_name.Width = 280;
-            // 
-            // col_type
-            // 
-            this.col_type.Text = "Type";
-            // 
-            // col_valeur
-            // 
-            this.col_valeur.Text = "Valeur";
-            this.col_valeur.Width = 200;
-            // 
-            // picLogo
-            // 
-            this.picLogo.Image = global::RDP_Generator.Properties.Resources.logo_trans;
-            this.picLogo.Location = new System.Drawing.Point(4, 2);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(45, 40);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLogo.TabIndex = 35;
-            this.picLogo.TabStop = false;
+            this.cmdOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(156)))), ((int)(((byte)(100)))));
+            this.cmdOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdOk.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdOk.ForeColor = System.Drawing.Color.Snow;
+            this.cmdOk.Location = new System.Drawing.Point(474, 617);
+            this.cmdOk.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdOk.Name = "cmdOk";
+            this.cmdOk.Size = new System.Drawing.Size(101, 36);
+            this.cmdOk.TabIndex = 25;
+            this.cmdOk.Text = "OK";
+            this.cmdOk.UseVisualStyleBackColor = false;
             // 
             // frmConfig
             // 
@@ -453,9 +453,9 @@ namespace RDP_Generator
             this.panel16.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -470,24 +470,24 @@ namespace RDP_Generator
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button cmdOk;
         private System.Windows.Forms.Button cmdAnnuler;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button cmdAjouter;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtConfig;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button cmdParcourir;
+        private System.Windows.Forms.Label lblConfig;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label lblConfigLV;
+        private System.Windows.Forms.ListView lvConfigs;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox txtDomaine;
+        private System.Windows.Forms.Label lblDomaine;
+        private System.Windows.Forms.Button cmdSupprimer;
+        private System.Windows.Forms.Button cmdEnregistrer;
+        private System.Windows.Forms.Button cmdDefaut;
         private System.Windows.Forms.ColumnHeader col_name;
         private System.Windows.Forms.ColumnHeader col_type;
         private System.Windows.Forms.ColumnHeader col_valeur;
