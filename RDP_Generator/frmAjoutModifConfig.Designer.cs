@@ -48,7 +48,7 @@ namespace RDP_Generator
             this.txtConfig = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cmdAnnuler = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.cmdOk = new System.Windows.Forms.Button();
             this.panel16.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -201,7 +201,7 @@ namespace RDP_Generator
             this.pnlMain.Controls.Add(this.txtConfig);
             this.pnlMain.Controls.Add(this.panel4);
             this.pnlMain.Controls.Add(this.cmdAnnuler);
-            this.pnlMain.Controls.Add(this.button2);
+            this.pnlMain.Controls.Add(this.cmdOk);
             this.pnlMain.Controls.Add(this.pnlHeader);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
@@ -296,20 +296,21 @@ namespace RDP_Generator
             this.cmdAnnuler.UseVisualStyleBackColor = false;
             this.cmdAnnuler.Click += new System.EventHandler(this.cmdAnnuler_Click);
             // 
-            // button2
+            // cmdOk
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(156)))), ((int)(((byte)(100)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Snow;
-            this.button2.Location = new System.Drawing.Point(473, 227);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 36);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "OK";
-            this.button2.UseVisualStyleBackColor = false;
+            this.cmdOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(156)))), ((int)(((byte)(100)))));
+            this.cmdOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdOk.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdOk.ForeColor = System.Drawing.Color.Snow;
+            this.cmdOk.Location = new System.Drawing.Point(473, 227);
+            this.cmdOk.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdOk.Name = "cmdOk";
+            this.cmdOk.Size = new System.Drawing.Size(101, 36);
+            this.cmdOk.TabIndex = 25;
+            this.cmdOk.Text = "OK";
+            this.cmdOk.UseVisualStyleBackColor = false;
+            this.cmdOk.Click += new System.EventHandler(this.cmdOk_Click);
             // 
             // frmAjoutModifConfig
             // 
@@ -343,7 +344,7 @@ namespace RDP_Generator
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button cmdOk;
         private System.Windows.Forms.Button cmdAnnuler;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Panel panel2;

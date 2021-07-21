@@ -15,14 +15,16 @@ namespace RDP_Generator
     {
         string actionParam = "";
         string settingTag;
+        int settingIndex = 0;
         ArrayList settings = new ArrayList();
-        public frmAjoutModifConfig(string action, string tag)
+        public frmAjoutModifConfig(string action, int index, string tag)
         {
             InitializeComponent();
             cmdAnnuler.FlatAppearance.BorderSize = 0;
 
             settingTag = tag;
             actionParam = action;
+            settingIndex = index;
         }
 
         private bool dragging = false;
@@ -62,7 +64,7 @@ namespace RDP_Generator
 
         private void cmdAnnuler_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void frmAjoutModifConfig_Load(object sender, EventArgs e)
@@ -100,5 +102,21 @@ namespace RDP_Generator
             }
         }
 
+        private void cmdOk_Click(object sender, EventArgs e)
+        {
+            FormCollection fc = Application.OpenForms;
+
+            foreach (Form f in fc)
+            {
+                if (f.Name == "frmMain")
+                {
+                    frmConfig f1 = (frmConfig)f;
+
+                    //f1
+
+
+                }
+            }
+        }
     }
 }

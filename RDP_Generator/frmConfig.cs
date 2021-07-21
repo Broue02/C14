@@ -110,7 +110,7 @@ namespace RDP_Generator
 
         private void cmdModifier_Click(object sender, EventArgs e)
         {
-            frmAjoutModifConfig frm = new frmAjoutModifConfig("Modif", lvConfigs.SelectedItems[0].Tag.ToString());
+            frmAjoutModifConfig frm = new frmAjoutModifConfig("Modif", lvConfigs.SelectedItems[0].Index, lvConfigs.SelectedItems[0].Tag.ToString());
             frm.ShowDialog();
         }
     }
