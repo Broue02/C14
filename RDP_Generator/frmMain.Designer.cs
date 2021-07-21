@@ -444,6 +444,7 @@ namespace RDP_Generator
             this.cmdOK.TabIndex = 25;
             this.cmdOK.Text = "Vérifier";
             this.cmdOK.UseVisualStyleBackColor = false;
+            this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
             // 
             // frmMain
             // 

@@ -145,6 +145,9 @@ namespace RDP_Generator
 
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
+            if (lvEtus.SelectedItems.Count < 1)
+                return;
+
             lvEtus.SelectedItems[0].Remove();
         }
 
@@ -157,6 +160,52 @@ namespace RDP_Generator
             else
             {
                 cmdSupprimer.Enabled = true;
+            }
+        }
+
+        private void cmdOK_Click(object sender, EventArgs e)
+        {
+            FileStream fs = new FileStream("test.rdp", FileMode.OpenOrCreate, FileAccess.Read, FileShare.None);
+            StreamReader reader = new StreamReader(fs);
+
+            string allConfigs = reader.ReadToEnd();
+            string[] splitChars = { "\r\n" };
+
+            string[] configsLines = allConfigs.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
+
+            reader.Close();
+            fs.Close();
+
+
+            foreach(ListViewItem etudiant in lvEtus.Items)
+            {
+                //string destination = txtDestination.Text.Replace("\\\\", "\\");
+                FileStream fsWriter = new FileStream(txtDestination.Text + "\\\\" + etudiant.SubItems[0].Text + ".rdp", FileMode.Create, FileAccess.Write, FileShare.None);
+                StreamWriter writer = new StreamWriter(fsWriter);
+
+                string line = "";
+
+                foreach(string lineRaw in configsLines) {
+
+                    // *******************************
+                    // Gérer Hostname (rajouter potentiellement à username et full address)
+                    // *******************************
+
+                    line = lineRaw;
+
+                    if (line.Contains("username"))
+                        line += etudiant.SubItems[0].Text;
+
+                    if (line.Contains("full address"))
+                        line += etudiant.SubItems[2].Text;
+
+                    writer.WriteLine(line);
+
+
+                }
+                
+                writer.Close();
+                fsWriter.Close();
             }
         }
     }
