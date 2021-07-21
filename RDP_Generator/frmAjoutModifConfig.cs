@@ -79,7 +79,6 @@ namespace RDP_Generator
                     break;
             }
 
-
             settings = GetConfig.GetConfigArray();
             Remplir_Formulaire();
         }
@@ -106,17 +105,82 @@ namespace RDP_Generator
         {
             FormCollection fc = Application.OpenForms;
 
+
             foreach (Form f in fc)
             {
-                if (f.Name == "frmMain")
+                if (f.Name == "frmConfig")
                 {
                     frmConfig f1 = (frmConfig)f;
 
-                    //f1
+                    if (actionParam == "Modif")
+                    {
+                        if (Valider_Form() == false)
+                            return;
+
+                        string config, value, type;
+
+                        config = txtConfig.Text.Trim();
+                        value = txtValue.Text.Trim();
+
+                        if (cmbType.Text == "Integer")
+                            type = "i";
+                        else
+                            type = "s";
 
 
+                        Settings setting = new Settings(config, type, value);
+
+                        f1.UpdateElement(setting, settingIndex);
+                    }
+                    else
+                    {
+                        if (Valider_Form() == false)
+                            return;
+
+                        string config, value, type;
+
+                        config = txtConfig.Text.Trim();
+                        value = txtValue.Text.Trim();
+
+                        if (cmbType.Text == "Integer")
+                            type = "i";
+                        else
+                            type = "s";
+
+
+                        Settings setting = new Settings(config, type, value);
+
+                        f1.AddElement(setting, settingTag);
+                    }
                 }
             }
+
+            this.Close();
+        }
+
+        private bool Valider_Form()
+        {
+            bool ok = true;
+
+            if (txtConfig.Text.Trim() == "")
+            {
+                erp.SetError(txtConfig, "Nom obligatoire");
+                ok = false;
+            }
+
+            if (txtValue.Text.Trim() == "")
+            {
+                erp.SetError(txtValue, "Valeur du parametre obligatoire");
+                ok = false;
+            }
+
+            if (cmbType.SelectedIndex == -1)
+            {
+                erp.SetError(cmbType, "Type de valeur obligatoire");
+                ok = false;
+            }
+
+            return ok;
         }
     }
 }

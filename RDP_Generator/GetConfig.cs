@@ -11,7 +11,6 @@ namespace RDP_Generator
 {
     public class GetConfig
     {
-        
         public static ArrayList GetConfigArray()
         {
             try

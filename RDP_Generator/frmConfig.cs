@@ -65,7 +65,7 @@ namespace RDP_Generator
 
         private void cmdAjouter_Click(object sender, EventArgs e)
         {
-            frmAjoutModifConfig form = new frmAjoutModifConfig("Ajout", "null");
+            frmAjoutModifConfig form = new frmAjoutModifConfig("Ajout", 0 ,"null");
             form.ShowDialog();
         }
 
@@ -86,8 +86,48 @@ namespace RDP_Generator
             Remplir_ListView();
         }
 
+        public void UpdateElement(Settings element, int index)
+        {
+            ListViewItem ligne = new ListViewItem(element.settingName);
+            ligne.SubItems.Add(element.settingType);
+            ligne.SubItems.Add(element.settingValue);
+
+            ligne.Tag = element.settingName;
+
+            lvConfigs.Items[index] = ligne;
+
+
+            Remplir_ListView();
+
+            foreach (Settings setting in splitSettings)
+            {
+                if (setting.settingName == element.settingName)
+                {
+                    setting.settingName = element.settingName;
+                    setting.settingType = element.settingType;
+                    setting.settingValue = element.settingValue;
+                }
+            }
+        }
+
+        public void AddElement(Settings element, string tag)
+        {
+            ListViewItem ligne = new ListViewItem(element.settingName);
+
+            ligne.SubItems.Add(element.settingType);
+            ligne.SubItems.Add(element.settingValue);
+            ligne.Tag = tag;
+
+            lvConfigs.Items.Add(ligne);
+
+
+            Remplir_ListView();
+        }
+
         private void Remplir_ListView()
         {
+            lvConfigs.Items.Clear();
+
             ListViewItem ligne = new ListViewItem();
 
             foreach(Settings config in splitSettings)

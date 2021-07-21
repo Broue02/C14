@@ -29,6 +29,7 @@ namespace RDP_Generator
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitre = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
@@ -49,10 +50,13 @@ namespace RDP_Generator
             this.panel4 = new System.Windows.Forms.Panel();
             this.cmdAnnuler = new System.Windows.Forms.Button();
             this.cmdOk = new System.Windows.Forms.Button();
+            this.erp = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblId = new System.Windows.Forms.Label();
             this.panel16.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pnlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erp)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitre
@@ -193,6 +197,7 @@ namespace RDP_Generator
             // 
             this.pnlMain.BackColor = System.Drawing.Color.Snow;
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMain.Controls.Add(this.lblId);
             this.pnlMain.Controls.Add(this.label3);
             this.pnlMain.Controls.Add(this.txtValue);
             this.pnlMain.Controls.Add(this.cmbType);
@@ -312,6 +317,19 @@ namespace RDP_Generator
             this.cmdOk.UseVisualStyleBackColor = false;
             this.cmdOk.Click += new System.EventHandler(this.cmdOk_Click);
             // 
+            // erp
+            // 
+            this.erp.ContainerControl = this;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(23, 247);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(0, 13);
+            this.lblId.TabIndex = 52;
+            this.lblId.Visible = false;
+            // 
             // frmAjoutModifConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,6 +348,7 @@ namespace RDP_Generator
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,6 +374,8 @@ namespace RDP_Generator
         private System.Windows.Forms.TextBox txtConfig;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtValue;
+        private System.Windows.Forms.ErrorProvider erp;
+        private System.Windows.Forms.Label lblId;
     }
 }
 
