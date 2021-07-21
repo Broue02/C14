@@ -42,7 +42,6 @@ namespace RDP_Generator
             this.pnlMain = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lvEtus = new System.Windows.Forms.ListView();
-            this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_da = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_courriel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Ordinateur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -240,11 +239,11 @@ namespace RDP_Generator
             // lvEtus
             // 
             this.lvEtus.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col_name,
             this.col_da,
             this.col_courriel,
             this.Ordinateur});
             this.lvEtus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvEtus.FullRowSelect = true;
             this.lvEtus.GridLines = true;
             this.lvEtus.HideSelection = false;
             this.lvEtus.Location = new System.Drawing.Point(23, 198);
@@ -253,11 +252,6 @@ namespace RDP_Generator
             this.lvEtus.TabIndex = 47;
             this.lvEtus.UseCompatibleStateImageBehavior = false;
             this.lvEtus.View = System.Windows.Forms.View.Details;
-            // 
-            // col_name
-            // 
-            this.col_name.Text = "Nom";
-            this.col_name.Width = 200;
             // 
             // col_da
             // 
@@ -288,6 +282,7 @@ namespace RDP_Generator
             this.cmdSupprimer.TabIndex = 46;
             this.cmdSupprimer.Text = "Supprimer";
             this.cmdSupprimer.UseVisualStyleBackColor = false;
+            this.cmdSupprimer.Click += new System.EventHandler(this.cmdSupprimer_Click);
             // 
             // lblEtus
             // 
@@ -497,7 +492,6 @@ namespace RDP_Generator
         private System.Windows.Forms.Label lblEtus;
         private System.Windows.Forms.Button cmdSupprimer;
         private System.Windows.Forms.ListView lvEtus;
-        private System.Windows.Forms.ColumnHeader col_name;
         private System.Windows.Forms.ColumnHeader col_da;
         private System.Windows.Forms.ColumnHeader col_courriel;
         private System.Windows.Forms.ColumnHeader Ordinateur;
