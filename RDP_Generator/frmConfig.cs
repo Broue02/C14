@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,9 @@ namespace RDP_Generator
 {
     public partial class frmConfig : Form
     {
-        string dossier;
+        string dossier = "";
+        string fichierRDPdefault = Environment.CurrentDirectory + "\\test.rdp";
+        ArrayList splitSettings = new ArrayList();
         public frmConfig()
         {
             InitializeComponent();
@@ -74,6 +77,74 @@ namespace RDP_Generator
             if (result == DialogResult.OK)
             {
                 dossier = ofd.FileName;
+            }
+        }
+
+        private void frmConfig_Load(object sender, EventArgs e)
+        {
+            LoadFile();
+            Remplir_ListView();
+        }
+
+        private void LoadFile()
+        {
+            try
+            {
+                FileStream fs = new FileStream(fichierRDPdefault, FileMode.Open, FileAccess.Read, FileShare.None);
+                StreamReader sr = new StreamReader(fs);
+
+                string contenu;
+                string[] rawSettings;
+                string[] splitChars = {"\r\n"};
+
+                contenu = sr.ReadToEnd();
+
+                sr.Close();
+                fs.Close();
+
+                rawSettings = contenu.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach(string line in rawSettings)
+                {
+                    string[] ligneSetting = new string[3];
+
+                    ligneSetting = line.Split(':');
+
+                    if (ligneSetting[2] == "")
+                    {
+                        ligneSetting[2] = " ";
+                    }
+
+                    Settings setting = new Settings(ligneSetting[0], ligneSetting[1], ligneSetting[2]);
+                    splitSettings.Add(setting);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void Remplir_ListView()
+        {
+            ListViewItem ligne = new ListViewItem();
+
+            foreach(Settings config in splitSettings)
+            {
+                ligne = new ListViewItem(config.settingName);
+
+                if (config.settingType == "i")
+                {
+                    ligne.SubItems.Add("Integer");
+                }
+                else
+                    ligne.SubItems.Add("String");
+
+                ligne.SubItems.Add(config.settingValue);
+                ligne.Tag = config.settingName;
+
+                lvConfigs.Items.Add(ligne);
             }
         }
     }
