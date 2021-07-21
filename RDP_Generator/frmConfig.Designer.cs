@@ -57,8 +57,9 @@ namespace RDP_Generator
             this.txtConfig = new System.Windows.Forms.TextBox();
             this.cmdAnnuler = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.cmdAjouter = new System.Windows.Forms.Button();
             this.cmdOk = new System.Windows.Forms.Button();
+            this.cmdAjouter = new System.Windows.Forms.Button();
+            this.cmdModifier = new System.Windows.Forms.Button();
             this.panel16.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -203,6 +204,7 @@ namespace RDP_Generator
             // 
             this.pnlMain.BackColor = System.Drawing.Color.Snow;
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMain.Controls.Add(this.cmdModifier);
             this.pnlMain.Controls.Add(this.cmdDefaut);
             this.pnlMain.Controls.Add(this.label6);
             this.pnlMain.Controls.Add(this.txtDomaine);
@@ -232,7 +234,7 @@ namespace RDP_Generator
             this.cmdDefaut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdDefaut.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdDefaut.ForeColor = System.Drawing.Color.Snow;
-            this.cmdDefaut.Location = new System.Drawing.Point(362, 180);
+            this.cmdDefaut.Location = new System.Drawing.Point(272, 180);
             this.cmdDefaut.Margin = new System.Windows.Forms.Padding(0);
             this.cmdDefaut.Name = "cmdDefaut";
             this.cmdDefaut.Size = new System.Drawing.Size(101, 36);
@@ -315,6 +317,7 @@ namespace RDP_Generator
             this.col_type,
             this.col_valeur});
             this.lvConfigs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvConfigs.FullRowSelect = true;
             this.lvConfigs.GridLines = true;
             this.lvConfigs.HideSelection = false;
             this.lvConfigs.Location = new System.Drawing.Point(24, 219);
@@ -410,6 +413,21 @@ namespace RDP_Generator
             this.panel4.TabIndex = 29;
             this.panel4.Tag = "div";
             // 
+            // cmdOk
+            // 
+            this.cmdOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(156)))), ((int)(((byte)(100)))));
+            this.cmdOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdOk.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdOk.ForeColor = System.Drawing.Color.Snow;
+            this.cmdOk.Location = new System.Drawing.Point(474, 617);
+            this.cmdOk.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdOk.Name = "cmdOk";
+            this.cmdOk.Size = new System.Drawing.Size(101, 36);
+            this.cmdOk.TabIndex = 25;
+            this.cmdOk.Text = "OK";
+            this.cmdOk.UseVisualStyleBackColor = false;
+            // 
             // cmdAjouter
             // 
             this.cmdAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
@@ -425,20 +443,20 @@ namespace RDP_Generator
             this.cmdAjouter.UseVisualStyleBackColor = false;
             this.cmdAjouter.Click += new System.EventHandler(this.cmdAjouter_Click);
             // 
-            // cmdOk
+            // cmdModifier
             // 
-            this.cmdOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(156)))), ((int)(((byte)(100)))));
-            this.cmdOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdOk.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdOk.ForeColor = System.Drawing.Color.Snow;
-            this.cmdOk.Location = new System.Drawing.Point(474, 617);
-            this.cmdOk.Margin = new System.Windows.Forms.Padding(0);
-            this.cmdOk.Name = "cmdOk";
-            this.cmdOk.Size = new System.Drawing.Size(101, 36);
-            this.cmdOk.TabIndex = 25;
-            this.cmdOk.Text = "OK";
-            this.cmdOk.UseVisualStyleBackColor = false;
+            this.cmdModifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
+            this.cmdModifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdModifier.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdModifier.ForeColor = System.Drawing.Color.Snow;
+            this.cmdModifier.Location = new System.Drawing.Point(373, 180);
+            this.cmdModifier.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdModifier.Name = "cmdModifier";
+            this.cmdModifier.Size = new System.Drawing.Size(101, 36);
+            this.cmdModifier.TabIndex = 55;
+            this.cmdModifier.Text = "Modifier";
+            this.cmdModifier.UseVisualStyleBackColor = false;
+            this.cmdModifier.Click += new System.EventHandler(this.cmdModifier_Click);
             // 
             // frmConfig
             // 
@@ -475,7 +493,6 @@ namespace RDP_Generator
         private System.Windows.Forms.Button cmdOk;
         private System.Windows.Forms.Button cmdAnnuler;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button cmdAjouter;
         private System.Windows.Forms.TextBox txtConfig;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Panel panel1;
@@ -493,6 +510,8 @@ namespace RDP_Generator
         private System.Windows.Forms.ColumnHeader col_name;
         private System.Windows.Forms.ColumnHeader col_type;
         private System.Windows.Forms.ColumnHeader col_valeur;
+        private System.Windows.Forms.Button cmdModifier;
+        private System.Windows.Forms.Button cmdAjouter;
     }
 }
 

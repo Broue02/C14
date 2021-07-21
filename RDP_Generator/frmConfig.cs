@@ -65,7 +65,7 @@ namespace RDP_Generator
 
         private void cmdAjouter_Click(object sender, EventArgs e)
         {
-            frmAjoutConfig form = new frmAjoutConfig();
+            frmAjoutModifConfig form = new frmAjoutModifConfig("Ajout", "null");
             form.ShowDialog();
         }
 
@@ -82,48 +82,8 @@ namespace RDP_Generator
 
         private void frmConfig_Load(object sender, EventArgs e)
         {
-            LoadFile();
+            splitSettings = GetConfig.GetConfigArray();
             Remplir_ListView();
-        }
-
-        private void LoadFile()
-        {
-            try
-            {
-                FileStream fs = new FileStream(fichierRDPdefault, FileMode.Open, FileAccess.Read, FileShare.None);
-                StreamReader sr = new StreamReader(fs);
-
-                string contenu;
-                string[] rawSettings;
-                string[] splitChars = {"\r\n"};
-
-                contenu = sr.ReadToEnd();
-
-                sr.Close();
-                fs.Close();
-
-                rawSettings = contenu.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
-
-                foreach(string line in rawSettings)
-                {
-                    string[] ligneSetting = new string[3];
-
-                    ligneSetting = line.Split(':');
-
-                    if (ligneSetting[2] == "")
-                    {
-                        ligneSetting[2] = " ";
-                    }
-
-                    Settings setting = new Settings(ligneSetting[0], ligneSetting[1], ligneSetting[2]);
-                    splitSettings.Add(setting);
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
         }
 
         private void Remplir_ListView()
@@ -146,6 +106,12 @@ namespace RDP_Generator
 
                 lvConfigs.Items.Add(ligne);
             }
+        }
+
+        private void cmdModifier_Click(object sender, EventArgs e)
+        {
+            frmAjoutModifConfig frm = new frmAjoutModifConfig("Modif", lvConfigs.SelectedItems[0].Tag.ToString());
+            frm.ShowDialog();
         }
     }
 }

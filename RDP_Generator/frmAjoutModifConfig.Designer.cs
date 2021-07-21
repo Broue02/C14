@@ -1,7 +1,7 @@
 ﻿
 namespace RDP_Generator
 {
-    partial class frmAjoutConfig
+    partial class frmAjoutModifConfig
     {
         /// <summary>
         /// Required designer variable.
@@ -40,15 +40,15 @@ namespace RDP_Generator
             this.button1 = new System.Windows.Forms.Button();
             this.lblHeader = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtValue = new System.Windows.Forms.TextBox();
+            this.cmbType = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtConfig = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.cmdAnnuler = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel16.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -182,9 +182,9 @@ namespace RDP_Generator
             this.lblHeader.ForeColor = System.Drawing.Color.Snow;
             this.lblHeader.Location = new System.Drawing.Point(46, -1);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(99, 45);
+            this.lblHeader.Size = new System.Drawing.Size(87, 45);
             this.lblHeader.TabIndex = 3;
-            this.lblHeader.Text = "Ajout";
+            this.lblHeader.Text = "Titre";
             this.lblHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlHeader_MouseDown);
             this.lblHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlHeader_MouseMove);
             this.lblHeader.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlHeader_MouseUp);
@@ -194,11 +194,11 @@ namespace RDP_Generator
             this.pnlMain.BackColor = System.Drawing.Color.Snow;
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlMain.Controls.Add(this.label3);
-            this.pnlMain.Controls.Add(this.textBox2);
-            this.pnlMain.Controls.Add(this.comboBox1);
+            this.pnlMain.Controls.Add(this.txtValue);
+            this.pnlMain.Controls.Add(this.cmbType);
             this.pnlMain.Controls.Add(this.label2);
             this.pnlMain.Controls.Add(this.label1);
-            this.pnlMain.Controls.Add(this.textBox1);
+            this.pnlMain.Controls.Add(this.txtConfig);
             this.pnlMain.Controls.Add(this.panel4);
             this.pnlMain.Controls.Add(this.cmdAnnuler);
             this.pnlMain.Controls.Add(this.button2);
@@ -208,6 +208,77 @@ namespace RDP_Generator
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(598, 273);
             this.pnlMain.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(71, 163);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 25);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "Valeur:";
+            // 
+            // txtValue
+            // 
+            this.txtValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtValue.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.txtValue.Location = new System.Drawing.Point(201, 157);
+            this.txtValue.Name = "txtValue";
+            this.txtValue.Size = new System.Drawing.Size(348, 35);
+            this.txtValue.TabIndex = 50;
+            // 
+            // cmbType
+            // 
+            this.cmbType.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Items.AddRange(new object[] {
+            "Integer",
+            "String"});
+            this.cmbType.Location = new System.Drawing.Point(201, 111);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(121, 38);
+            this.cmbType.TabIndex = 49;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(77, 118);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 25);
+            this.label2.TabIndex = 48;
+            this.label2.Text = "Type:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(40, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 25);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Configuration:";
+            // 
+            // txtConfig
+            // 
+            this.txtConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtConfig.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.txtConfig.Location = new System.Drawing.Point(201, 66);
+            this.txtConfig.Name = "txtConfig";
+            this.txtConfig.Size = new System.Drawing.Size(348, 35);
+            this.txtConfig.TabIndex = 45;
+            // 
+            // panel4
+            // 
+            this.panel4.AutoSize = true;
+            this.panel4.BackColor = System.Drawing.Color.Snow;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Location = new System.Drawing.Point(12, 213);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(575, 2);
+            this.panel4.TabIndex = 44;
+            this.panel4.Tag = "div";
             // 
             // cmdAnnuler
             // 
@@ -240,78 +311,7 @@ namespace RDP_Generator
             this.button2.Text = "OK";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // panel4
-            // 
-            this.panel4.AutoSize = true;
-            this.panel4.BackColor = System.Drawing.Color.Snow;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Location = new System.Drawing.Point(12, 213);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(575, 2);
-            this.panel4.TabIndex = 44;
-            this.panel4.Tag = "div";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(40, 72);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 25);
-            this.label1.TabIndex = 46;
-            this.label1.Text = "Configuration:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.textBox1.Location = new System.Drawing.Point(201, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(348, 35);
-            this.textBox1.TabIndex = 45;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(77, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 25);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "Type:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Chaîne",
-            "Nombre"});
-            this.comboBox1.Location = new System.Drawing.Point(201, 111);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 38);
-            this.comboBox1.TabIndex = 49;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(71, 163);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 25);
-            this.label3.TabIndex = 51;
-            this.label3.Text = "Valeur:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.textBox2.Location = new System.Drawing.Point(201, 157);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(348, 35);
-            this.textBox2.TabIndex = 50;
-            // 
-            // frmAjoutConfig
+            // frmAjoutModifConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -319,8 +319,9 @@ namespace RDP_Generator
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.panel16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmAjoutConfig";
+            this.Name = "frmAjoutModifConfig";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmAjoutModifConfig_Load);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
@@ -347,12 +348,12 @@ namespace RDP_Generator
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtConfig;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtValue;
     }
 }
 
