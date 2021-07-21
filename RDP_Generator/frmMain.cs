@@ -103,8 +103,8 @@ namespace RDP_Generator
                     if (nbr != 0)
                     {
                         ligne = new ListViewItem(values[0]);
-                        ligne.SubItems.Add(values[1]);
                         ligne.SubItems.Add(values[2]);
+                        ligne.SubItems.Add(values[1]);
                         ligne.Tag = nbr;
 
                         lvEtus.Items.Add(ligne);
@@ -145,10 +145,19 @@ namespace RDP_Generator
 
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
-            /*if (lvEtus.SelectedItems[0].Tag)
-            {
+            lvEtus.SelectedItems[0].Remove();
+        }
 
-            }*/
+        private void lvEtus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvEtus.SelectedItems.Count == 0)
+            {
+                cmdSupprimer.Enabled = false;
+            }
+            else
+            {
+                cmdSupprimer.Enabled = true;
+            }
         }
     }
 }

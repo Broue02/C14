@@ -252,6 +252,7 @@ namespace RDP_Generator
             this.lvEtus.TabIndex = 47;
             this.lvEtus.UseCompatibleStateImageBehavior = false;
             this.lvEtus.View = System.Windows.Forms.View.Details;
+            this.lvEtus.SelectedIndexChanged += new System.EventHandler(this.lvEtus_SelectedIndexChanged);
             // 
             // col_da
             // 
@@ -266,7 +267,7 @@ namespace RDP_Generator
             // Ordinateur
             // 
             this.Ordinateur.Text = "Ordinateur";
-            this.Ordinateur.Width = 75;
+            this.Ordinateur.Width = 168;
             // 
             // cmdSupprimer
             // 
