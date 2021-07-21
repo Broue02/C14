@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,6 +63,17 @@ namespace RDP_Generator
         {
             frmConfig form = new frmConfig();
             form.ShowDialog();
+        }
+
+        private void cmdParcourirDest_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            DialogResult result = fbd.ShowDialog();
+
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+            {
+                string[] fichiers = Directory.GetFiles(fbd.SelectedPath);
+            }
         }
     }
 }
