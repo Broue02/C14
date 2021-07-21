@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RDP_Generator", "RDP_Generator\RDP_Generator.csproj", "{6EB96513-EE69-4065-A021-A848C91A472D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EB96513-EE69-4065-A021-A848C91A472D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EB96513-EE69-4065-A021-A848C91A472D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EB96513-EE69-4065-A021-A848C91A472D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EB96513-EE69-4065-A021-A848C91A472D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0514367D-358B-4C6A-8B1A-0F67F6B1C8B8}
+	EndGlobalSection
+EndGlobal
