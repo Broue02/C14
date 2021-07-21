@@ -362,6 +362,7 @@ namespace RDP_Generator
             this.cmdParcourir.TabIndex = 37;
             this.cmdParcourir.Text = "..";
             this.cmdParcourir.UseVisualStyleBackColor = false;
+            this.cmdParcourir.Click += new System.EventHandler(this.cmdParcourir_Click);
             // 
             // lblConfig
             // 

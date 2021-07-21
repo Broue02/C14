@@ -75,5 +75,16 @@ namespace RDP_Generator
                 string[] fichiers = Directory.GetFiles(fbd.SelectedPath);
             }
         }
+
+        private void cmdParcourirInfos_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            DialogResult result = fbd.ShowDialog();
+
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+            {
+                string[] fichiers2 = Directory.GetFiles(fbd.SelectedPath);
+            }
+        }
     }
 }

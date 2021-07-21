@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace RDP_Generator
 {
     public partial class frmConfig : Form
     {
+        string dossier;
         public frmConfig()
         {
             InitializeComponent();
@@ -62,6 +64,17 @@ namespace RDP_Generator
         {
             frmAjoutConfig form = new frmAjoutConfig();
             form.ShowDialog();
+        }
+
+        private void cmdParcourir_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            DialogResult result = ofd.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                dossier = ofd.FileName;
+            }
         }
     }
 }

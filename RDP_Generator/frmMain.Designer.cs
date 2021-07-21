@@ -348,6 +348,7 @@ namespace RDP_Generator
             this.cmdParcourirInfos.TabIndex = 37;
             this.cmdParcourirInfos.Text = "..";
             this.cmdParcourirInfos.UseVisualStyleBackColor = false;
+            this.cmdParcourirInfos.Click += new System.EventHandler(this.cmdParcourirInfos_Click);
             // 
             // lblInfosEtus
             // 
