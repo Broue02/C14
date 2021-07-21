@@ -96,9 +96,6 @@ namespace RDP_Generator
 
             lvConfigs.Items[index] = ligne;
 
-
-            Remplir_ListView();
-
             foreach (Settings setting in splitSettings)
             {
                 if (setting.settingName == element.settingName)
@@ -108,6 +105,8 @@ namespace RDP_Generator
                     setting.settingValue = element.settingValue;
                 }
             }
+
+            Remplir_ListView();
         }
 
         public void AddElement(Settings element, string tag)
@@ -120,7 +119,7 @@ namespace RDP_Generator
 
             lvConfigs.Items.Add(ligne);
 
-
+            splitSettings.Add(element);
             Remplir_ListView();
         }
 
@@ -152,6 +151,16 @@ namespace RDP_Generator
         {
             frmAjoutModifConfig frm = new frmAjoutModifConfig("Modif", lvConfigs.SelectedItems[0].Index, lvConfigs.SelectedItems[0].Tag.ToString());
             frm.ShowDialog();
+        }
+
+        private void cmdSupprimer_Click(object sender, EventArgs e)
+        {
+            ListViewItem ligne = lvConfigs.SelectedItems[0];
+
+            splitSettings.RemoveAt(ligne.Index);
+            lvConfigs.Items[lvConfigs.SelectedItems[0].Index].Remove();
+
+            Remplir_ListView();
         }
     }
 }

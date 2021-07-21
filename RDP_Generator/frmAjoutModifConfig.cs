@@ -112,11 +112,11 @@ namespace RDP_Generator
                 {
                     frmConfig f1 = (frmConfig)f;
 
+                    if (Valider_Form() == false)
+                        return;
+
                     if (actionParam == "Modif")
                     {
-                        if (Valider_Form() == false)
-                            return;
-
                         string config, value, type;
 
                         config = txtConfig.Text.Trim();
@@ -134,9 +134,6 @@ namespace RDP_Generator
                     }
                     else
                     {
-                        if (Valider_Form() == false)
-                            return;
-
                         string config, value, type;
 
                         config = txtConfig.Text.Trim();

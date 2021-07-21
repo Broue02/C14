@@ -40,6 +40,7 @@ namespace RDP_Generator
             this.button1 = new System.Windows.Forms.Button();
             this.lblHeader = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.cmdModifier = new System.Windows.Forms.Button();
             this.cmdDefaut = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtDomaine = new System.Windows.Forms.TextBox();
@@ -57,9 +58,8 @@ namespace RDP_Generator
             this.txtConfig = new System.Windows.Forms.TextBox();
             this.cmdAnnuler = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.cmdOk = new System.Windows.Forms.Button();
             this.cmdAjouter = new System.Windows.Forms.Button();
-            this.cmdModifier = new System.Windows.Forms.Button();
+            this.cmdOk = new System.Windows.Forms.Button();
             this.panel16.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -228,6 +228,21 @@ namespace RDP_Generator
             this.pnlMain.Size = new System.Drawing.Size(598, 665);
             this.pnlMain.TabIndex = 5;
             // 
+            // cmdModifier
+            // 
+            this.cmdModifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
+            this.cmdModifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdModifier.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdModifier.ForeColor = System.Drawing.Color.Snow;
+            this.cmdModifier.Location = new System.Drawing.Point(373, 180);
+            this.cmdModifier.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdModifier.Name = "cmdModifier";
+            this.cmdModifier.Size = new System.Drawing.Size(101, 36);
+            this.cmdModifier.TabIndex = 55;
+            this.cmdModifier.Text = "Modifier";
+            this.cmdModifier.UseVisualStyleBackColor = false;
+            this.cmdModifier.Click += new System.EventHandler(this.cmdModifier_Click);
+            // 
             // cmdDefaut
             // 
             this.cmdDefaut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
@@ -274,7 +289,6 @@ namespace RDP_Generator
             // cmdSupprimer
             // 
             this.cmdSupprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.cmdSupprimer.Enabled = false;
             this.cmdSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdSupprimer.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSupprimer.ForeColor = System.Drawing.Color.Snow;
@@ -285,6 +299,7 @@ namespace RDP_Generator
             this.cmdSupprimer.TabIndex = 45;
             this.cmdSupprimer.Text = "Supprimer";
             this.cmdSupprimer.UseVisualStyleBackColor = false;
+            this.cmdSupprimer.Click += new System.EventHandler(this.cmdSupprimer_Click);
             // 
             // cmdEnregistrer
             // 
@@ -413,21 +428,6 @@ namespace RDP_Generator
             this.panel4.TabIndex = 29;
             this.panel4.Tag = "div";
             // 
-            // cmdOk
-            // 
-            this.cmdOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(156)))), ((int)(((byte)(100)))));
-            this.cmdOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdOk.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdOk.ForeColor = System.Drawing.Color.Snow;
-            this.cmdOk.Location = new System.Drawing.Point(474, 617);
-            this.cmdOk.Margin = new System.Windows.Forms.Padding(0);
-            this.cmdOk.Name = "cmdOk";
-            this.cmdOk.Size = new System.Drawing.Size(101, 36);
-            this.cmdOk.TabIndex = 25;
-            this.cmdOk.Text = "OK";
-            this.cmdOk.UseVisualStyleBackColor = false;
-            // 
             // cmdAjouter
             // 
             this.cmdAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
@@ -443,20 +443,20 @@ namespace RDP_Generator
             this.cmdAjouter.UseVisualStyleBackColor = false;
             this.cmdAjouter.Click += new System.EventHandler(this.cmdAjouter_Click);
             // 
-            // cmdModifier
+            // cmdOk
             // 
-            this.cmdModifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
-            this.cmdModifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdModifier.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdModifier.ForeColor = System.Drawing.Color.Snow;
-            this.cmdModifier.Location = new System.Drawing.Point(373, 180);
-            this.cmdModifier.Margin = new System.Windows.Forms.Padding(0);
-            this.cmdModifier.Name = "cmdModifier";
-            this.cmdModifier.Size = new System.Drawing.Size(101, 36);
-            this.cmdModifier.TabIndex = 55;
-            this.cmdModifier.Text = "Modifier";
-            this.cmdModifier.UseVisualStyleBackColor = false;
-            this.cmdModifier.Click += new System.EventHandler(this.cmdModifier_Click);
+            this.cmdOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(156)))), ((int)(((byte)(100)))));
+            this.cmdOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdOk.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdOk.ForeColor = System.Drawing.Color.Snow;
+            this.cmdOk.Location = new System.Drawing.Point(474, 617);
+            this.cmdOk.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdOk.Name = "cmdOk";
+            this.cmdOk.Size = new System.Drawing.Size(101, 36);
+            this.cmdOk.TabIndex = 25;
+            this.cmdOk.Text = "OK";
+            this.cmdOk.UseVisualStyleBackColor = false;
             // 
             // frmConfig
             // 
