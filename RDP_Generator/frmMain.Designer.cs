@@ -33,37 +33,37 @@ namespace RDP_Generator
             this.panel16 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.picLogo = new System.Windows.Forms.PictureBox();
             this.cmdMinimiser = new System.Windows.Forms.Button();
             this.cmdQuitter = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblHeader = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.cmdConfig = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.cmdAnnuler = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.picLogo = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lvEtus = new System.Windows.Forms.ListView();
             this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_da = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_courriel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Ordinateur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.cmdSupprimer = new System.Windows.Forms.Button();
+            this.lblEtus = new System.Windows.Forms.Label();
+            this.cmdParcourirDest = new System.Windows.Forms.Button();
+            this.lblDestination = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cmdParcourirInfos = new System.Windows.Forms.Button();
+            this.lblInfosEtus = new System.Windows.Forms.Label();
+            this.cmdAjouter = new System.Windows.Forms.Button();
+            this.txtDestination = new System.Windows.Forms.TextBox();
+            this.txtInfosEtus = new System.Windows.Forms.TextBox();
+            this.cmdAnnuler = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.cmdConfig = new System.Windows.Forms.Button();
+            this.cmdOK = new System.Windows.Forms.Button();
             this.panel16.SuspendLayout();
             this.pnlHeader.SuspendLayout();
-            this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitre
@@ -118,6 +118,27 @@ namespace RDP_Generator
             this.pnlHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlHeader_MouseDown);
             this.pnlHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlHeader_MouseMove);
             this.pnlHeader.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlHeader_MouseUp);
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.BackColor = System.Drawing.Color.Snow;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(0, 49);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(598, 2);
+            this.panel2.TabIndex = 41;
+            this.panel2.Tag = "div";
+            // 
+            // picLogo
+            // 
+            this.picLogo.Image = global::RDP_Generator.Properties.Resources.logo_trans;
+            this.picLogo.Location = new System.Drawing.Point(4, 2);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(45, 40);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogo.TabIndex = 35;
+            this.picLogo.TabStop = false;
             // 
             // cmdMinimiser
             // 
@@ -184,21 +205,21 @@ namespace RDP_Generator
             this.pnlMain.BackColor = System.Drawing.Color.Snow;
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlMain.Controls.Add(this.panel5);
-            this.pnlMain.Controls.Add(this.listView1);
-            this.pnlMain.Controls.Add(this.button4);
-            this.pnlMain.Controls.Add(this.label3);
-            this.pnlMain.Controls.Add(this.button3);
-            this.pnlMain.Controls.Add(this.label2);
+            this.pnlMain.Controls.Add(this.lvEtus);
+            this.pnlMain.Controls.Add(this.cmdSupprimer);
+            this.pnlMain.Controls.Add(this.lblEtus);
+            this.pnlMain.Controls.Add(this.cmdParcourirDest);
+            this.pnlMain.Controls.Add(this.lblDestination);
             this.pnlMain.Controls.Add(this.panel1);
-            this.pnlMain.Controls.Add(this.button8);
-            this.pnlMain.Controls.Add(this.label1);
-            this.pnlMain.Controls.Add(this.button7);
-            this.pnlMain.Controls.Add(this.textBox3);
-            this.pnlMain.Controls.Add(this.textBox1);
+            this.pnlMain.Controls.Add(this.cmdParcourirInfos);
+            this.pnlMain.Controls.Add(this.lblInfosEtus);
+            this.pnlMain.Controls.Add(this.cmdAjouter);
+            this.pnlMain.Controls.Add(this.txtDestination);
+            this.pnlMain.Controls.Add(this.txtInfosEtus);
             this.pnlMain.Controls.Add(this.cmdAnnuler);
             this.pnlMain.Controls.Add(this.panel4);
             this.pnlMain.Controls.Add(this.cmdConfig);
-            this.pnlMain.Controls.Add(this.button2);
+            this.pnlMain.Controls.Add(this.cmdOK);
             this.pnlMain.Controls.Add(this.pnlHeader);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
@@ -206,216 +227,32 @@ namespace RDP_Generator
             this.pnlMain.Size = new System.Drawing.Size(598, 665);
             this.pnlMain.TabIndex = 5;
             // 
-            // button2
+            // panel5
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(156)))), ((int)(((byte)(100)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Snow;
-            this.button2.Location = new System.Drawing.Point(474, 617);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 36);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Vérifier";
-            this.button2.UseVisualStyleBackColor = false;
+            this.panel5.BackColor = System.Drawing.Color.Snow;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Location = new System.Drawing.Point(10, 555);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(575, 1);
+            this.panel5.TabIndex = 48;
+            this.panel5.Tag = "div";
             // 
-            // cmdConfig
+            // lvEtus
             // 
-            this.cmdConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
-            this.cmdConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdConfig.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdConfig.ForeColor = System.Drawing.Color.Snow;
-            this.cmdConfig.Location = new System.Drawing.Point(414, 118);
-            this.cmdConfig.Margin = new System.Windows.Forms.Padding(0);
-            this.cmdConfig.Name = "cmdConfig";
-            this.cmdConfig.Size = new System.Drawing.Size(160, 36);
-            this.cmdConfig.TabIndex = 27;
-            this.cmdConfig.Text = "Configuration";
-            this.cmdConfig.UseVisualStyleBackColor = false;
-            this.cmdConfig.Click += new System.EventHandler(this.cmdConfig_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.AutoSize = true;
-            this.panel4.BackColor = System.Drawing.Color.Snow;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Location = new System.Drawing.Point(11, 606);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(575, 2);
-            this.panel4.TabIndex = 29;
-            this.panel4.Tag = "div";
-            // 
-            // cmdAnnuler
-            // 
-            this.cmdAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdAnnuler.BackColor = System.Drawing.Color.Transparent;
-            this.cmdAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdAnnuler.Font = new System.Drawing.Font("Segoe UI Semilight", 14.25F, System.Drawing.FontStyle.Underline);
-            this.cmdAnnuler.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cmdAnnuler.Location = new System.Drawing.Point(362, 617);
-            this.cmdAnnuler.Margin = new System.Windows.Forms.Padding(0);
-            this.cmdAnnuler.Name = "cmdAnnuler";
-            this.cmdAnnuler.Size = new System.Drawing.Size(97, 36);
-            this.cmdAnnuler.TabIndex = 30;
-            this.cmdAnnuler.Text = "Annuler";
-            this.cmdAnnuler.UseVisualStyleBackColor = false;
-            this.cmdAnnuler.Click += new System.EventHandler(this.cmdAnnuler_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.textBox1.Location = new System.Drawing.Point(166, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(336, 35);
-            this.textBox1.TabIndex = 31;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.textBox3.Location = new System.Drawing.Point(209, 564);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(328, 35);
-            this.textBox3.TabIndex = 33;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.Snow;
-            this.button7.Location = new System.Drawing.Point(505, 71);
-            this.button7.Margin = new System.Windows.Forms.Padding(0);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(34, 36);
-            this.button7.TabIndex = 35;
-            this.button7.Text = "+";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(15, 78);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 25);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Infos Étudiants:";
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.Snow;
-            this.button8.Location = new System.Drawing.Point(540, 71);
-            this.button8.Margin = new System.Windows.Forms.Padding(0);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(34, 36);
-            this.button8.TabIndex = 37;
-            this.button8.Text = "..";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.AutoSize = true;
-            this.panel1.BackColor = System.Drawing.Color.Snow;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(10, 113);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(575, 2);
-            this.panel1.TabIndex = 38;
-            this.panel1.Tag = "div";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(19, 570);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 25);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Dossier Destination:";
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Snow;
-            this.button3.Location = new System.Drawing.Point(541, 564);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(34, 36);
-            this.button3.TabIndex = 40;
-            this.button3.Text = "..";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // panel2
-            // 
-            this.panel2.AutoSize = true;
-            this.panel2.BackColor = System.Drawing.Color.Snow;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(0, 49);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(598, 2);
-            this.panel2.TabIndex = 41;
-            this.panel2.Tag = "div";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label3.Location = new System.Drawing.Point(16, 169);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 25);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "Liste des étudiants:";
-            // 
-            // picLogo
-            // 
-            this.picLogo.Image = global::RDP_Generator.Properties.Resources.logo_trans;
-            this.picLogo.Location = new System.Drawing.Point(4, 2);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(45, 40);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLogo.TabIndex = 35;
-            this.picLogo.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.button4.Enabled = false;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Snow;
-            this.button4.Location = new System.Drawing.Point(463, 515);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(111, 36);
-            this.button4.TabIndex = 46;
-            this.button4.Text = "Supprimer";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvEtus.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.col_name,
             this.col_da,
             this.col_courriel,
             this.Ordinateur});
-            this.listView1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(23, 198);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(551, 315);
-            this.listView1.TabIndex = 47;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvEtus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvEtus.GridLines = true;
+            this.lvEtus.HideSelection = false;
+            this.lvEtus.Location = new System.Drawing.Point(23, 198);
+            this.lvEtus.Name = "lvEtus";
+            this.lvEtus.Size = new System.Drawing.Size(551, 315);
+            this.lvEtus.TabIndex = 47;
+            this.lvEtus.UseCompatibleStateImageBehavior = false;
+            this.lvEtus.View = System.Windows.Forms.View.Details;
             // 
             // col_name
             // 
@@ -437,15 +274,178 @@ namespace RDP_Generator
             this.Ordinateur.Text = "Ordinateur";
             this.Ordinateur.Width = 75;
             // 
-            // panel5
+            // cmdSupprimer
             // 
-            this.panel5.BackColor = System.Drawing.Color.Snow;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Location = new System.Drawing.Point(10, 555);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(575, 1);
-            this.panel5.TabIndex = 48;
-            this.panel5.Tag = "div";
+            this.cmdSupprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.cmdSupprimer.Enabled = false;
+            this.cmdSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdSupprimer.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSupprimer.ForeColor = System.Drawing.Color.Snow;
+            this.cmdSupprimer.Location = new System.Drawing.Point(463, 515);
+            this.cmdSupprimer.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdSupprimer.Name = "cmdSupprimer";
+            this.cmdSupprimer.Size = new System.Drawing.Size(111, 36);
+            this.cmdSupprimer.TabIndex = 46;
+            this.cmdSupprimer.Text = "Supprimer";
+            this.cmdSupprimer.UseVisualStyleBackColor = false;
+            // 
+            // lblEtus
+            // 
+            this.lblEtus.AutoSize = true;
+            this.lblEtus.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.lblEtus.Location = new System.Drawing.Point(16, 169);
+            this.lblEtus.Name = "lblEtus";
+            this.lblEtus.Size = new System.Drawing.Size(175, 25);
+            this.lblEtus.TabIndex = 42;
+            this.lblEtus.Text = "Liste des étudiants:";
+            // 
+            // cmdParcourirDest
+            // 
+            this.cmdParcourirDest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
+            this.cmdParcourirDest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdParcourirDest.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdParcourirDest.ForeColor = System.Drawing.Color.Snow;
+            this.cmdParcourirDest.Location = new System.Drawing.Point(541, 564);
+            this.cmdParcourirDest.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdParcourirDest.Name = "cmdParcourirDest";
+            this.cmdParcourirDest.Size = new System.Drawing.Size(34, 36);
+            this.cmdParcourirDest.TabIndex = 40;
+            this.cmdParcourirDest.Text = "..";
+            this.cmdParcourirDest.UseVisualStyleBackColor = false;
+            // 
+            // lblDestination
+            // 
+            this.lblDestination.AutoSize = true;
+            this.lblDestination.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblDestination.Location = new System.Drawing.Point(19, 570);
+            this.lblDestination.Name = "lblDestination";
+            this.lblDestination.Size = new System.Drawing.Size(184, 25);
+            this.lblDestination.TabIndex = 39;
+            this.lblDestination.Text = "Dossier Destination:";
+            // 
+            // panel1
+            // 
+            this.panel1.AutoSize = true;
+            this.panel1.BackColor = System.Drawing.Color.Snow;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(10, 113);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(575, 2);
+            this.panel1.TabIndex = 38;
+            this.panel1.Tag = "div";
+            // 
+            // cmdParcourirInfos
+            // 
+            this.cmdParcourirInfos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
+            this.cmdParcourirInfos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdParcourirInfos.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdParcourirInfos.ForeColor = System.Drawing.Color.Snow;
+            this.cmdParcourirInfos.Location = new System.Drawing.Point(540, 71);
+            this.cmdParcourirInfos.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdParcourirInfos.Name = "cmdParcourirInfos";
+            this.cmdParcourirInfos.Size = new System.Drawing.Size(34, 36);
+            this.cmdParcourirInfos.TabIndex = 37;
+            this.cmdParcourirInfos.Text = "..";
+            this.cmdParcourirInfos.UseVisualStyleBackColor = false;
+            // 
+            // lblInfosEtus
+            // 
+            this.lblInfosEtus.AutoSize = true;
+            this.lblInfosEtus.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblInfosEtus.Location = new System.Drawing.Point(15, 78);
+            this.lblInfosEtus.Name = "lblInfosEtus";
+            this.lblInfosEtus.Size = new System.Drawing.Size(145, 25);
+            this.lblInfosEtus.TabIndex = 36;
+            this.lblInfosEtus.Text = "Infos Étudiants:";
+            // 
+            // cmdAjouter
+            // 
+            this.cmdAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
+            this.cmdAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdAjouter.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdAjouter.ForeColor = System.Drawing.Color.Snow;
+            this.cmdAjouter.Location = new System.Drawing.Point(505, 71);
+            this.cmdAjouter.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdAjouter.Name = "cmdAjouter";
+            this.cmdAjouter.Size = new System.Drawing.Size(34, 36);
+            this.cmdAjouter.TabIndex = 35;
+            this.cmdAjouter.Text = "+";
+            this.cmdAjouter.UseVisualStyleBackColor = false;
+            // 
+            // txtDestination
+            // 
+            this.txtDestination.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDestination.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.txtDestination.Location = new System.Drawing.Point(209, 564);
+            this.txtDestination.Name = "txtDestination";
+            this.txtDestination.Size = new System.Drawing.Size(328, 35);
+            this.txtDestination.TabIndex = 33;
+            // 
+            // txtInfosEtus
+            // 
+            this.txtInfosEtus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtInfosEtus.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.txtInfosEtus.Location = new System.Drawing.Point(166, 72);
+            this.txtInfosEtus.Name = "txtInfosEtus";
+            this.txtInfosEtus.Size = new System.Drawing.Size(336, 35);
+            this.txtInfosEtus.TabIndex = 31;
+            // 
+            // cmdAnnuler
+            // 
+            this.cmdAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdAnnuler.BackColor = System.Drawing.Color.Transparent;
+            this.cmdAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdAnnuler.Font = new System.Drawing.Font("Segoe UI Semilight", 14.25F, System.Drawing.FontStyle.Underline);
+            this.cmdAnnuler.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cmdAnnuler.Location = new System.Drawing.Point(362, 617);
+            this.cmdAnnuler.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdAnnuler.Name = "cmdAnnuler";
+            this.cmdAnnuler.Size = new System.Drawing.Size(97, 36);
+            this.cmdAnnuler.TabIndex = 30;
+            this.cmdAnnuler.Text = "Annuler";
+            this.cmdAnnuler.UseVisualStyleBackColor = false;
+            this.cmdAnnuler.Click += new System.EventHandler(this.cmdAnnuler_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.AutoSize = true;
+            this.panel4.BackColor = System.Drawing.Color.Snow;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Location = new System.Drawing.Point(11, 606);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(575, 2);
+            this.panel4.TabIndex = 29;
+            this.panel4.Tag = "div";
+            // 
+            // cmdConfig
+            // 
+            this.cmdConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
+            this.cmdConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdConfig.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdConfig.ForeColor = System.Drawing.Color.Snow;
+            this.cmdConfig.Location = new System.Drawing.Point(414, 118);
+            this.cmdConfig.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdConfig.Name = "cmdConfig";
+            this.cmdConfig.Size = new System.Drawing.Size(160, 36);
+            this.cmdConfig.TabIndex = 27;
+            this.cmdConfig.Text = "Configuration";
+            this.cmdConfig.UseVisualStyleBackColor = false;
+            this.cmdConfig.Click += new System.EventHandler(this.cmdConfig_Click);
+            // 
+            // cmdOK
+            // 
+            this.cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(156)))), ((int)(((byte)(100)))));
+            this.cmdOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdOK.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdOK.ForeColor = System.Drawing.Color.Snow;
+            this.cmdOK.Location = new System.Drawing.Point(474, 617);
+            this.cmdOK.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdOK.Name = "cmdOK";
+            this.cmdOK.Size = new System.Drawing.Size(101, 36);
+            this.cmdOK.TabIndex = 25;
+            this.cmdOK.Text = "Vérifier";
+            this.cmdOK.UseVisualStyleBackColor = false;
             // 
             // frmMain
             // 
@@ -461,9 +461,9 @@ namespace RDP_Generator
             this.panel16.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -478,23 +478,23 @@ namespace RDP_Generator
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button cmdOK;
         private System.Windows.Forms.Button cmdAnnuler;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button cmdConfig;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtInfosEtus;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button cmdParcourirInfos;
+        private System.Windows.Forms.Label lblInfosEtus;
+        private System.Windows.Forms.Button cmdAjouter;
+        private System.Windows.Forms.TextBox txtDestination;
+        private System.Windows.Forms.Button cmdParcourirDest;
+        private System.Windows.Forms.Label lblDestination;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label lblEtus;
+        private System.Windows.Forms.Button cmdSupprimer;
+        private System.Windows.Forms.ListView lvEtus;
         private System.Windows.Forms.ColumnHeader col_name;
         private System.Windows.Forms.ColumnHeader col_da;
         private System.Windows.Forms.ColumnHeader col_courriel;
