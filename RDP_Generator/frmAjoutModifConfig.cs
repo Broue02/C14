@@ -16,8 +16,9 @@ namespace RDP_Generator
         string actionParam = "";
         string settingTag;
         int settingIndex = 0;
+        string Settingsdossier = "";
         ArrayList settings = new ArrayList();
-        public frmAjoutModifConfig(string action, int index, string tag)
+        public frmAjoutModifConfig(string action, int index, string tag, string dossier)
         {
             InitializeComponent();
             cmdAnnuler.FlatAppearance.BorderSize = 0;
@@ -25,6 +26,7 @@ namespace RDP_Generator
             settingTag = tag;
             actionParam = action;
             settingIndex = index;
+            Settingsdossier = dossier;
         }
 
         private bool dragging = false;
@@ -79,7 +81,7 @@ namespace RDP_Generator
                     break;
             }
 
-            settings = GetConfig.GetConfigArray();
+            settings = GetConfig.GetConfigArray(Settingsdossier);
             Remplir_Formulaire();
         }
 
@@ -131,6 +133,7 @@ namespace RDP_Generator
                         Settings setting = new Settings(config, type, value);
 
                         f1.UpdateElement(setting, settingIndex);
+                        
                     }
                     else
                     {

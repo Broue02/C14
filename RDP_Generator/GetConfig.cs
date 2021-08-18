@@ -11,15 +11,15 @@ namespace RDP_Generator
 {
     public class GetConfig
     {
-        public static ArrayList GetConfigArray()
+        public static ArrayList GetConfigArray(string dossier)
         {
             try
             {
-                string dossier = "";
-                string fichierRDPdefault = Environment.CurrentDirectory + "\\test.rdp";
+                //string dossier = "";
+                //string fichierRDPdefault = Environment.CurrentDirectory + "\\test.rdp";
                 ArrayList splitSettings = new ArrayList();
 
-                FileStream fs = new FileStream(fichierRDPdefault, FileMode.Open, FileAccess.Read, FileShare.None);
+                FileStream fs = new FileStream(dossier, FileMode.Open, FileAccess.Read, FileShare.None);
                 StreamReader sr = new StreamReader(fs);
 
                 string contenu;

@@ -65,7 +65,7 @@ namespace RDP_Generator
 
         private void cmdAjouter_Click(object sender, EventArgs e)
         {
-            frmAjoutModifConfig form = new frmAjoutModifConfig("Ajout", 0 ,"null");
+            frmAjoutModifConfig form = new frmAjoutModifConfig("Ajout", 0 ,"null", dossier);
             form.ShowDialog();
         }
 
@@ -77,13 +77,14 @@ namespace RDP_Generator
             if (result == DialogResult.OK)
             {
                 dossier = ofd.FileName;
+                splitSettings = GetConfig.GetConfigArray(dossier);
+                Remplir_ListView();
             }
         }
 
         private void frmConfig_Load(object sender, EventArgs e)
         {
-            splitSettings = GetConfig.GetConfigArray();
-            Remplir_ListView();
+
         }
 
         public void UpdateElement(Settings element, int index)
@@ -94,11 +95,10 @@ namespace RDP_Generator
 
             ligne.Tag = element.settingName;
 
-            lvConfigs.Items[index] = ligne;
 
             foreach (Settings setting in splitSettings)
             {
-                if (setting.settingName == element.settingName)
+                if (setting.settingName == lvConfigs.Items[index].Text)
                 {
                     setting.settingName = element.settingName;
                     setting.settingType = element.settingType;
@@ -149,7 +149,7 @@ namespace RDP_Generator
 
         private void cmdModifier_Click(object sender, EventArgs e)
         {
-            frmAjoutModifConfig frm = new frmAjoutModifConfig("Modif", lvConfigs.SelectedItems[0].Index, lvConfigs.SelectedItems[0].Tag.ToString());
+            frmAjoutModifConfig frm = new frmAjoutModifConfig("Modif", lvConfigs.SelectedItems[0].Index, lvConfigs.SelectedItems[0].Tag.ToString(), dossier);
             frm.ShowDialog();
         }
 
@@ -161,6 +161,34 @@ namespace RDP_Generator
             lvConfigs.Items[lvConfigs.SelectedItems[0].Index].Remove();
 
             Remplir_ListView();
+        }
+
+        private void cmdEnregistrer_Click(object sender, EventArgs e)
+        {
+            if (splitSettings.Count > 0)
+            {
+                SaveFileDialog test = new SaveFileDialog();
+                test.FileName = dossier;
+                test.Title = "Sauvegardez votre fichier RDP:";
+
+                string saveSetting = "";
+
+                if (test.ShowDialog() == DialogResult.OK)
+                {
+                    Stream s = File.Open(test.FileName, FileMode.CreateNew);
+                    StreamWriter sw = new StreamWriter(s);
+
+                    foreach (Settings setting in splitSettings)
+                    {
+                        saveSetting += setting.settingName + ":" + setting.settingType + ":" + setting.settingValue + "\n";
+                    }
+
+                    sw.Write(saveSetting);
+
+                    sw.Close();
+                    s.Close();
+                }
+            }
         }
     }
 }

@@ -314,6 +314,7 @@ namespace RDP_Generator
             this.cmdEnregistrer.TabIndex = 43;
             this.cmdEnregistrer.Text = "Enregistrer";
             this.cmdEnregistrer.UseVisualStyleBackColor = false;
+            this.cmdEnregistrer.Click += new System.EventHandler(this.cmdEnregistrer_Click);
             // 
             // lblConfigLV
             // 
