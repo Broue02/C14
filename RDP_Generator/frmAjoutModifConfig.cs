@@ -87,6 +87,9 @@ namespace RDP_Generator
 
         private void Remplir_Formulaire()
         {
+            if (settings is null)
+                return;
+
            foreach (Settings param in settings)
             {
                 if (param.settingName == settingTag)

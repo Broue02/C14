@@ -61,6 +61,10 @@ namespace RDP_Generator
         private void cmdVider_Click(object sender, EventArgs e)
         {
             lvConfigs.Items.Clear();
+
+            if(splitSettings is null)
+                splitSettings = new ArrayList();
+
             splitSettings.Clear();
             txtConfig.Clear();
             txtDomaine.Clear();
@@ -86,28 +90,36 @@ namespace RDP_Generator
 
         private void cmdParcourir_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "rdp files (*.rdp)|*.rdp|All files (*.*)|*.*";
-
-            DialogResult result = ofd.ShowDialog();
-
-            if (result == DialogResult.OK)
+            try
             {
-                splitSettings.Clear();
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "rdp files (*.rdp)|*.rdp|All files (*.*)|*.*";
 
-                dossier = ofd.FileName;
+                DialogResult result = ofd.ShowDialog();
 
-                string[] dossierSplit = dossier.Split('\\');
-                txtConfig.Text = dossierSplit[dossierSplit.Length - 1];
+                if (result == DialogResult.OK)
+                {
+                    splitSettings.Clear();
 
-                splitSettings = GetConfig.GetConfigArray(dossier);
-                Remplir_ListView();
+                    dossier = ofd.FileName;
 
-                cmdAjouter.Enabled = true;
-                cmdModifier.Enabled = true;
-                cmdDefaut.Enabled = true;
-                cmdEnregistrer.Enabled = true;
-                cmdOk.Enabled = true;
+                    string[] dossierSplit = dossier.Split('\\');
+                    txtConfig.Text = dossierSplit[dossierSplit.Length - 1];
+
+                    splitSettings = GetConfig.GetConfigArray(dossier);
+                    Remplir_ListView();
+
+                    cmdAjouter.Enabled = true;
+                    cmdModifier.Enabled = true;
+                    cmdDefaut.Enabled = true;
+                    cmdEnregistrer.Enabled = true;
+                    cmdOk.Enabled = true;
+                }
+            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -149,32 +161,43 @@ namespace RDP_Generator
 
         private void Remplir_ListView()
         {
-            lvConfigs.Items.Clear();
-
-            ListViewItem ligne = new ListViewItem();
-
-            foreach(Settings config in splitSettings)
+            try
             {
-                ligne = new ListViewItem(config.settingName);
+                lvConfigs.Items.Clear();
 
-                if (config.settingName == "domaine")
+                ListViewItem ligne = new ListViewItem();
+
+                if (splitSettings is null)
+                    throw new Exception("Configuration vide. Fichier RDP potentiellement non-valide.");
+
+                foreach (Settings config in splitSettings)
                 {
-                    txtDomaine.Clear();
-                    txtDomaine.Text = config.settingValue;
-                    continue;
+                    ligne = new ListViewItem(config.settingName);
+
+                    if (config.settingName == "domaine")
+                    {
+                        txtDomaine.Clear();
+                        txtDomaine.Text = config.settingValue;
+                        continue;
+                    }
+
+                    if (config.settingType == "i")
+                    {
+                        ligne.SubItems.Add("Integer");
+                    }
+                    else
+                        ligne.SubItems.Add("String");
+
+                    ligne.SubItems.Add(config.settingValue);
+                    ligne.Tag = config.settingName;
+
+                    lvConfigs.Items.Add(ligne);
                 }
-
-                if (config.settingType == "i")
-                {
-                    ligne.SubItems.Add("Integer");
-                }
-                else
-                    ligne.SubItems.Add("String");
-
-                ligne.SubItems.Add(config.settingValue);
-                ligne.Tag = config.settingName;
-
-                lvConfigs.Items.Add(ligne);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmdVider.PerformClick();
             }
         }
 
