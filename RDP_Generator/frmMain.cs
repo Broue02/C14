@@ -98,13 +98,9 @@ namespace RDP_Generator
                 dialog.Description = "Veuillez sélectionner le dossier de destination.";
 
                 if (dialog.ShowDialog() == DialogResult.OK)
-                {
                     filename = dialog.SelectedPath;
-                }
                 else
-                {
                     return;
-                }
 
                 ListView lv = new ListView();
                 destination = filename;
@@ -366,6 +362,11 @@ namespace RDP_Generator
                 return true;
             else
                 return false;
+        }
+
+        private void cmdAjouter_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

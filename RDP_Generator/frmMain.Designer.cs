@@ -385,6 +385,7 @@ namespace RDP_Generator
             this.cmdAjouter.TabIndex = 35;
             this.cmdAjouter.Text = "+";
             this.cmdAjouter.UseVisualStyleBackColor = false;
+            this.cmdAjouter.Click += new System.EventHandler(this.cmdAjouter_Click);
             // 
             // txtDestination
             // 
