@@ -148,7 +148,7 @@ namespace RDP_Generator
 
                 if (config.settingName == "domaine")
                 {
-                    txtDomaine.Text = config.settingName;
+                    txtDomaine.Text = config.settingValue;
                     continue;
                 }
 
