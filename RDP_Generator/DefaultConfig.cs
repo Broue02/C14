@@ -12,7 +12,7 @@ namespace RDP_Generator
         //Juste a ajouter des éléments si la config "Default" ne convient pas aux besoins
         public static string[] GetDefaultConfig()
         {
-            string[] config = new string[47];
+            string[] config = new string[48];
             config[0] = "screen mode id:i:2";
             config[1] = "use multimon:i:0";
             config[2] = "desktopwidth:i:1920";
@@ -60,6 +60,7 @@ namespace RDP_Generator
             config[44] = "use redirection server name:i:0";
             config[45] = "rdgiskdcproxy:i:0";
             config[46] = "kdcproxyname:s:";
+            config[47] = "username:s:";
 
             return config;
         }

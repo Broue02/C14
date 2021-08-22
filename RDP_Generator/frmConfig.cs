@@ -185,15 +185,23 @@ namespace RDP_Generator
                 sfd.Title = "Sauvegardez votre fichier RDP:";
 
                 string saveSetting = "";
+                string domaine = "";
 
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
+                    if (txtDomaine.Text.Trim() != "")
+                    {
+                        domaine = "domaine:s:@" + txtDomaine.Text.Trim() + "\n";
+                        saveSetting = domaine;
+                    }
+
                     Stream s = File.Open(sfd.FileName, FileMode.CreateNew);
                     StreamWriter sw = new StreamWriter(s);
 
                     foreach (Settings setting in splitSettings)
                     {
-                        saveSetting += setting.settingName + ":" + setting.settingType + ":" + setting.settingValue + "\n";
+                        if (setting.settingName != "domaine")
+                            saveSetting += setting.settingName + ":" + setting.settingType + ":" + setting.settingValue + "\n";
                     }
 
                     sw.Write(saveSetting);
@@ -218,10 +226,18 @@ namespace RDP_Generator
             Stream s = File.Open(fichier, FileMode.CreateNew);
             StreamWriter sw = new StreamWriter(s);
             string saveSetting = "";
+            string domaine = "";
+
+            if (txtDomaine.Text.Trim() != "")
+            {
+                domaine = "domaine:s:@" + txtDomaine.Text.Trim() + "\n";
+                saveSetting = domaine;
+            }
 
             foreach(Settings setting in splitSettings)
             {
-                saveSetting += setting.settingName + ":" + setting.settingType + ":" + setting.settingValue + "\n";
+                if (setting.settingName != "domaine")
+                    saveSetting += setting.settingName + ":" + setting.settingType + ":" + setting.settingValue + "\n";
             }
 
             sw.Write(saveSetting);
@@ -281,6 +297,7 @@ namespace RDP_Generator
             string fichier = fichierRDPdefault + "\\configTemp.rdp";
             if (File.Exists(fichier))
             {
+                txtConfig.Text = "configTemp.rdp";
                 dossier = fichierRDPdefault + "\\configTemp.rdp";
                 FileStream fs = new FileStream(fichier, FileMode.Open, FileAccess.Read, FileShare.None);
                 StreamReader sr = new StreamReader(fs);
@@ -315,6 +332,13 @@ namespace RDP_Generator
 
                 foreach(Settings setting in splitSettings)
                 {
+                    if (setting.settingName == "domaine")
+                    {
+                        string value = setting.settingValue.Substring(1, setting.settingValue.Length - 1);
+                        txtDomaine.Text = value;
+                        continue;
+                    }
+
                     ligne = new ListViewItem(setting.settingName);
                     ligne.SubItems.Add(setting.settingType);
                     ligne.SubItems.Add(setting.settingValue);

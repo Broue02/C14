@@ -399,6 +399,7 @@ namespace RDP_Generator
             // txtConfig
             // 
             this.txtConfig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtConfig.Enabled = false;
             this.txtConfig.Font = new System.Drawing.Font("Segoe UI", 15.75F);
             this.txtConfig.Location = new System.Drawing.Point(189, 72);
             this.txtConfig.Name = "txtConfig";
