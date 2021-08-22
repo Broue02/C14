@@ -187,18 +187,24 @@ namespace RDP_Generator
 
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
-            ListViewItem ligne = lvConfigs.SelectedItems[0];
+            if (lvConfigs.Items.Count != 0)
+            {
+                ListViewItem ligne = lvConfigs.SelectedItems[0];
 
-            Settings domaine = (Settings)splitSettings[0];
+                Settings domaine = (Settings)splitSettings[0];
 
-            if (domaine.settingName == "domaine")
-                splitSettings.RemoveAt(ligne.Index + 1);
-            else
-                splitSettings.RemoveAt(ligne.Index);
+                if (domaine.settingName == "domaine")
+                    splitSettings.RemoveAt(ligne.Index + 1);
+                else
+                    splitSettings.RemoveAt(ligne.Index);
 
-            lvConfigs.Items[lvConfigs.SelectedItems[0].Index].Remove();
+                lvConfigs.Items[lvConfigs.SelectedItems[0].Index].Remove();
 
-            Remplir_ListView();
+                Remplir_ListView();
+
+                if (lvConfigs.Items.Count != 0)
+                    lvConfigs.Items[0].Selected = true;
+            }
         }
 
         private void cmdEnregistrer_Click(object sender, EventArgs e)
@@ -313,6 +319,8 @@ namespace RDP_Generator
                 cmdAjouter.Enabled = true;
                 cmdModifier.Enabled = true;
                 cmdSupprimer.Enabled = true;
+
+                lvConfigs.Items[0].Selected = true;
             }
             catch(Exception)
             {
