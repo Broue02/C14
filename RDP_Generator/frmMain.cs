@@ -201,12 +201,6 @@ namespace RDP_Generator
                 ok = false;
             }
 
-            if(txtInfosEtus.Text.Trim() == "")
-            {
-                err.SetError(txtInfosEtus, "Liste d'étudiants obligatoire");
-                ok = false;
-            }
-
             if(lvEtus.Items.Count == 0)
             {
                 err.SetError(lvEtus, "Liste d'étudiants obligatoire");
