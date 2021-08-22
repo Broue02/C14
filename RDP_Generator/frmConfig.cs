@@ -385,6 +385,35 @@ namespace RDP_Generator
 
                 lvConfigs.Items[0].Selected = true;
             }
+            else
+            {
+                string[] settings = DefaultConfig.GetDefaultConfig();
+                ListViewItem ligne = new ListViewItem();
+
+                lvConfigs.Items.Clear();
+
+                foreach(string element in settings)
+                {
+                    string[] setting = new string[3];
+                    setting = element.Split(':');
+
+                    ligne = new ListViewItem(setting[0]);
+                    ligne.SubItems.Add(setting[1]);
+                    ligne.SubItems.Add(setting[2]);
+                    ligne.Tag = setting[0];
+
+                    Settings settingObj = new Settings(setting[0], setting[1], setting[2]);
+                    splitSettings.Add(settingObj);
+
+                    lvConfigs.Items.Add(ligne);
+                }
+
+                cmdEnregistrer.Enabled = true;
+                cmdOk.Enabled = true;
+                cmdAjouter.Enabled = true;
+                cmdModifier.Enabled = true;
+                }
+            }
         }
     }
-}
+
