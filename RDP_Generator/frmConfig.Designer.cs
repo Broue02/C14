@@ -56,7 +56,7 @@ namespace RDP_Generator
             this.cmdParcourir = new System.Windows.Forms.Button();
             this.lblConfig = new System.Windows.Forms.Label();
             this.txtConfig = new System.Windows.Forms.TextBox();
-            this.cmdFermer = new System.Windows.Forms.Button();
+            this.cmdVider = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cmdAjouter = new System.Windows.Forms.Button();
             this.cmdOk = new System.Windows.Forms.Button();
@@ -217,7 +217,7 @@ namespace RDP_Generator
             this.pnlMain.Controls.Add(this.cmdParcourir);
             this.pnlMain.Controls.Add(this.lblConfig);
             this.pnlMain.Controls.Add(this.txtConfig);
-            this.pnlMain.Controls.Add(this.cmdFermer);
+            this.pnlMain.Controls.Add(this.cmdVider);
             this.pnlMain.Controls.Add(this.panel4);
             this.pnlMain.Controls.Add(this.cmdAjouter);
             this.pnlMain.Controls.Add(this.cmdOk);
@@ -406,21 +406,21 @@ namespace RDP_Generator
             this.txtConfig.Size = new System.Drawing.Size(348, 35);
             this.txtConfig.TabIndex = 31;
             // 
-            // cmdFermer
+            // cmdVider
             // 
-            this.cmdFermer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdFermer.BackColor = System.Drawing.Color.Transparent;
-            this.cmdFermer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdFermer.Font = new System.Drawing.Font("Segoe UI Semilight", 14.25F, System.Drawing.FontStyle.Underline);
-            this.cmdFermer.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cmdFermer.Location = new System.Drawing.Point(362, 617);
-            this.cmdFermer.Margin = new System.Windows.Forms.Padding(0);
-            this.cmdFermer.Name = "cmdFermer";
-            this.cmdFermer.Size = new System.Drawing.Size(97, 36);
-            this.cmdFermer.TabIndex = 30;
-            this.cmdFermer.Text = "Fermer";
-            this.cmdFermer.UseVisualStyleBackColor = false;
-            this.cmdFermer.Click += new System.EventHandler(this.cmdFermer_Click);
+            this.cmdVider.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdVider.BackColor = System.Drawing.Color.Transparent;
+            this.cmdVider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdVider.Font = new System.Drawing.Font("Segoe UI Semilight", 14.25F, System.Drawing.FontStyle.Underline);
+            this.cmdVider.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cmdVider.Location = new System.Drawing.Point(362, 617);
+            this.cmdVider.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdVider.Name = "cmdVider";
+            this.cmdVider.Size = new System.Drawing.Size(97, 36);
+            this.cmdVider.TabIndex = 30;
+            this.cmdVider.Text = "Vider";
+            this.cmdVider.UseVisualStyleBackColor = false;
+            this.cmdVider.Click += new System.EventHandler(this.cmdVider_Click);
             // 
             // panel4
             // 
@@ -499,7 +499,7 @@ namespace RDP_Generator
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Button cmdOk;
-        private System.Windows.Forms.Button cmdFermer;
+        private System.Windows.Forms.Button cmdVider;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtConfig;
         private System.Windows.Forms.PictureBox picLogo;

@@ -357,8 +357,12 @@ namespace RDP_Generator
 
         private void cmdAjouter_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             frmAjoutEtudiant frm = new frmAjoutEtudiant(lvEtus);
             frm.ShowDialog();
+=======
+
+>>>>>>> 30a2ea6ed7717a674c43070c44330b3cbf550438
         }
     }
 }

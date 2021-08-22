@@ -20,7 +20,7 @@ namespace RDP_Generator
         public frmConfig()
         {
             InitializeComponent();
-            cmdFermer.FlatAppearance.BorderSize = 0;
+            cmdVider.FlatAppearance.BorderSize = 0;
         }
 
         private bool dragging = false;
@@ -58,9 +58,18 @@ namespace RDP_Generator
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void cmdFermer_Click(object sender, EventArgs e)
+        private void cmdVider_Click(object sender, EventArgs e)
         {
-            this.Close();
+            lvConfigs.Items.Clear();
+            splitSettings.Clear();
+            txtConfig.Clear();
+            txtDomaine.Clear();
+
+            cmdAjouter.Enabled = false;
+            cmdModifier.Enabled = false;
+            cmdOk.Enabled = false;
+            cmdEnregistrer.Enabled = false;
+            cmdSupprimer.Enabled = false;
         }
 
         private void cmdAjouter_Click(object sender, EventArgs e)
