@@ -235,7 +235,7 @@ namespace RDP_Generator
             this.picConfigOK.BackColor = System.Drawing.Color.Transparent;
             this.picConfigOK.BackgroundImage = global::RDP_Generator.Properties.Resources.check_ok;
             this.picConfigOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picConfigOK.Location = new System.Drawing.Point(380, 118);
+            this.picConfigOK.Location = new System.Drawing.Point(380, 121);
             this.picConfigOK.Name = "picConfigOK";
             this.picConfigOK.Size = new System.Drawing.Size(35, 35);
             this.picConfigOK.TabIndex = 49;
@@ -262,9 +262,9 @@ namespace RDP_Generator
             this.lvEtus.FullRowSelect = true;
             this.lvEtus.GridLines = true;
             this.lvEtus.HideSelection = false;
-            this.lvEtus.Location = new System.Drawing.Point(23, 198);
+            this.lvEtus.Location = new System.Drawing.Point(23, 188);
             this.lvEtus.Name = "lvEtus";
-            this.lvEtus.Size = new System.Drawing.Size(551, 315);
+            this.lvEtus.Size = new System.Drawing.Size(551, 325);
             this.lvEtus.TabIndex = 47;
             this.lvEtus.UseCompatibleStateImageBehavior = false;
             this.lvEtus.View = System.Windows.Forms.View.Details;
@@ -305,7 +305,7 @@ namespace RDP_Generator
             // 
             this.lblEtus.AutoSize = true;
             this.lblEtus.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lblEtus.Location = new System.Drawing.Point(16, 169);
+            this.lblEtus.Location = new System.Drawing.Point(16, 160);
             this.lblEtus.Name = "lblEtus";
             this.lblEtus.Size = new System.Drawing.Size(175, 25);
             this.lblEtus.TabIndex = 42;
@@ -393,7 +393,7 @@ namespace RDP_Generator
             this.txtDestination.Location = new System.Drawing.Point(209, 564);
             this.txtDestination.Name = "txtDestination";
             this.txtDestination.ReadOnly = true;
-            this.txtDestination.Size = new System.Drawing.Size(328, 35);
+            this.txtDestination.Size = new System.Drawing.Size(316, 35);
             this.txtDestination.TabIndex = 33;
             // 
             // txtInfosEtus
@@ -403,7 +403,7 @@ namespace RDP_Generator
             this.txtInfosEtus.Location = new System.Drawing.Point(166, 72);
             this.txtInfosEtus.Name = "txtInfosEtus";
             this.txtInfosEtus.ReadOnly = true;
-            this.txtInfosEtus.Size = new System.Drawing.Size(336, 35);
+            this.txtInfosEtus.Size = new System.Drawing.Size(322, 35);
             this.txtInfosEtus.TabIndex = 31;
             // 
             // panel4
@@ -423,7 +423,7 @@ namespace RDP_Generator
             this.cmdConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdConfig.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdConfig.ForeColor = System.Drawing.Color.Snow;
-            this.cmdConfig.Location = new System.Drawing.Point(414, 118);
+            this.cmdConfig.Location = new System.Drawing.Point(414, 121);
             this.cmdConfig.Margin = new System.Windows.Forms.Padding(0);
             this.cmdConfig.Name = "cmdConfig";
             this.cmdConfig.Size = new System.Drawing.Size(160, 36);

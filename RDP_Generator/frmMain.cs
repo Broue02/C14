@@ -16,6 +16,7 @@ namespace RDP_Generator
     {
         private string destination = "";
         private string fichierEtudiants = "";
+        public string nomDomaine = "";
 
         public frmMain()
         {
@@ -36,6 +37,8 @@ namespace RDP_Generator
             dragging = true;
             dragCursorPoint = Cursor.Position;
             dragFormPoint = this.Location;
+
+            Application.OpenForms
         }
 
         private void pnlHeader_MouseMove(object sender, MouseEventArgs e)
@@ -247,7 +250,14 @@ namespace RDP_Generator
             if (!Verifier_Configuration(configsLines))
                 return;
 
-            //Verifier_Configuration(configsLines);
+            string domaine = "";
+            int lineCounter = 0;
+
+            if (configsLines[0].Contains("domaine:s:"))
+            {
+                domaine = configsLines[0].Split(':').Last();
+                lineCounter = 1;
+            }
 
 
             foreach (ListViewItem etudiant in lvEtus.Items)
@@ -258,17 +268,18 @@ namespace RDP_Generator
 
                 string line = "";
 
-                foreach (string lineRaw in configsLines)
+                //foreach (string lineRaw in configsLines)
+                for (int i = lineCounter; i < configsLines.Length; i++)
                 {
 
                     // *******************************
                     // Gérer Hostname (rajouter potentiellement à username et full address)
                     // *******************************
 
-                    line = lineRaw;
+                    line = configsLines[i];
 
                     if (line.Contains("username"))
-                        line += etudiant.SubItems[0].Text;
+                        line += etudiant.SubItems[0].Text + domaine;
 
                     if (line.Contains("full address"))
                         line += etudiant.SubItems[2].Text;
@@ -304,17 +315,25 @@ namespace RDP_Generator
         private bool Verifier_Configuration(string[] configLines)
         {
             string line = "";
+            string domaine = "";
+            int lineCounter = 0;
             ArrayList testConfig = new ArrayList();
 
             if (lvEtus.Items.Count == 0)
                 return false;
 
-            for(int i = 0; i < configLines.Length; i++)
+            if (configLines[0].Contains("domaine:s:"))
             {
+                domaine = configLines[0].Split(':').Last();
+                lineCounter = 1;
+            }
+
+            for(int i = lineCounter; i < configLines.Length; i++)
+            { 
                 line = configLines[i];
 
                 if (line.Contains("username"))
-                    line += lvEtus.Items[0].SubItems[0].Text;
+                    line += lvEtus.Items[0].SubItems[0].Text + domaine;
 
                 if (line.Contains("full address"))
                     line += lvEtus.Items[0].SubItems[2].Text;
