@@ -65,7 +65,7 @@ namespace RDP_Generator
             txtConfig.Clear();
             txtDomaine.Clear();
 
-            cmdAjouter.Enabled = false;
+            //cmdAjouter.Enabled = false;
             cmdModifier.Enabled = false;
             cmdOk.Enabled = false;
             cmdEnregistrer.Enabled = false;
@@ -312,6 +312,7 @@ namespace RDP_Generator
                 cmdOk.Enabled = true;
                 cmdAjouter.Enabled = true;
                 cmdModifier.Enabled = true;
+                cmdSupprimer.Enabled = true;
             }
             catch(Exception)
             {
@@ -382,6 +383,7 @@ namespace RDP_Generator
                 cmdModifier.Enabled = true;
                 cmdEnregistrer.Enabled = true;
                 cmdOk.Enabled = true;
+                cmdSupprimer.Enabled = true;
 
                 lvConfigs.Items[0].Selected = true;
             }
@@ -412,7 +414,10 @@ namespace RDP_Generator
                 cmdOk.Enabled = true;
                 cmdAjouter.Enabled = true;
                 cmdModifier.Enabled = true;
-                }
+                cmdSupprimer.Enabled = true;
+
+                lvConfigs.Items[0].Selected = true;
+            }
             }
         }
     }
