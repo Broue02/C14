@@ -99,40 +99,13 @@ namespace RDP_Generator
             Remplir_ListView();
         }
 
-        private void cmdEnregistrer_Click(object sender, EventArgs e)
-        {
-            if (splitSettings.Count > 0)
-            {
-                SaveFileDialog test = new SaveFileDialog();
-                test.FileName = dossier;
-                test.Title = "Sauvegardez votre fichier RDP:";
-
-                string saveSetting = "";
-
-                if (test.ShowDialog() == DialogResult.OK)
-                {
-                    Stream s = File.Open(test.FileName, FileMode.CreateNew);
-                    StreamWriter sw = new StreamWriter(s);
-
-                    foreach (Settings setting in splitSettings)
-                    {
-                        saveSetting += setting.settingName + ":" + setting.settingType + ":" + setting.settingValue + "\n";
-                    }
-
-                    sw.Write(saveSetting);
-
-                    sw.Close();
-                    s.Close();
-                }
-            }
-        }
-
         private void frmVerif_Load(object sender, EventArgs e)
         {
             Remplir_ListView();
             cmdOk.DialogResult = DialogResult.OK;
             cmdAnnuler.DialogResult = DialogResult.Cancel;
             cmdQuitter.DialogResult = DialogResult.Cancel;
+            this.CenterToScreen();
 
         }
 

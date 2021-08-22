@@ -123,5 +123,11 @@
   <ItemGroup>
     <None Include="Resources\logo-trans.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check_ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check_err.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

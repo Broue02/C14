@@ -41,6 +41,7 @@ namespace RDP_Generator
             this.button1 = new System.Windows.Forms.Button();
             this.lblHeader = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.picConfigOK = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lvEtus = new System.Windows.Forms.ListView();
             this.col_da = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -56,7 +57,6 @@ namespace RDP_Generator
             this.cmdAjouter = new System.Windows.Forms.Button();
             this.txtDestination = new System.Windows.Forms.TextBox();
             this.txtInfosEtus = new System.Windows.Forms.TextBox();
-            this.cmdAnnuler = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cmdConfig = new System.Windows.Forms.Button();
             this.cmdOK = new System.Windows.Forms.Button();
@@ -65,6 +65,7 @@ namespace RDP_Generator
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pnlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picConfigOK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.SuspendLayout();
             // 
@@ -206,6 +207,7 @@ namespace RDP_Generator
             // 
             this.pnlMain.BackColor = System.Drawing.Color.Snow;
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMain.Controls.Add(this.picConfigOK);
             this.pnlMain.Controls.Add(this.panel5);
             this.pnlMain.Controls.Add(this.lvEtus);
             this.pnlMain.Controls.Add(this.cmdSupprimer);
@@ -218,7 +220,6 @@ namespace RDP_Generator
             this.pnlMain.Controls.Add(this.cmdAjouter);
             this.pnlMain.Controls.Add(this.txtDestination);
             this.pnlMain.Controls.Add(this.txtInfosEtus);
-            this.pnlMain.Controls.Add(this.cmdAnnuler);
             this.pnlMain.Controls.Add(this.panel4);
             this.pnlMain.Controls.Add(this.cmdConfig);
             this.pnlMain.Controls.Add(this.cmdOK);
@@ -228,6 +229,18 @@ namespace RDP_Generator
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(598, 665);
             this.pnlMain.TabIndex = 5;
+            // 
+            // picConfigOK
+            // 
+            this.picConfigOK.BackColor = System.Drawing.Color.Transparent;
+            this.picConfigOK.BackgroundImage = global::RDP_Generator.Properties.Resources.check_ok;
+            this.picConfigOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picConfigOK.Location = new System.Drawing.Point(380, 118);
+            this.picConfigOK.Name = "picConfigOK";
+            this.picConfigOK.Size = new System.Drawing.Size(35, 35);
+            this.picConfigOK.TabIndex = 49;
+            this.picConfigOK.TabStop = false;
+            this.picConfigOK.Visible = false;
             // 
             // panel5
             // 
@@ -379,6 +392,7 @@ namespace RDP_Generator
             this.txtDestination.Font = new System.Drawing.Font("Segoe UI", 15.75F);
             this.txtDestination.Location = new System.Drawing.Point(209, 564);
             this.txtDestination.Name = "txtDestination";
+            this.txtDestination.ReadOnly = true;
             this.txtDestination.Size = new System.Drawing.Size(328, 35);
             this.txtDestination.TabIndex = 33;
             // 
@@ -388,24 +402,9 @@ namespace RDP_Generator
             this.txtInfosEtus.Font = new System.Drawing.Font("Segoe UI", 15.75F);
             this.txtInfosEtus.Location = new System.Drawing.Point(166, 72);
             this.txtInfosEtus.Name = "txtInfosEtus";
+            this.txtInfosEtus.ReadOnly = true;
             this.txtInfosEtus.Size = new System.Drawing.Size(336, 35);
             this.txtInfosEtus.TabIndex = 31;
-            // 
-            // cmdAnnuler
-            // 
-            this.cmdAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdAnnuler.BackColor = System.Drawing.Color.Transparent;
-            this.cmdAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdAnnuler.Font = new System.Drawing.Font("Segoe UI Semilight", 14.25F, System.Drawing.FontStyle.Underline);
-            this.cmdAnnuler.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cmdAnnuler.Location = new System.Drawing.Point(362, 617);
-            this.cmdAnnuler.Margin = new System.Windows.Forms.Padding(0);
-            this.cmdAnnuler.Name = "cmdAnnuler";
-            this.cmdAnnuler.Size = new System.Drawing.Size(97, 36);
-            this.cmdAnnuler.TabIndex = 30;
-            this.cmdAnnuler.Text = "Annuler";
-            this.cmdAnnuler.UseVisualStyleBackColor = false;
-            this.cmdAnnuler.Click += new System.EventHandler(this.cmdAnnuler_Click);
             // 
             // panel4
             // 
@@ -463,6 +462,7 @@ namespace RDP_Generator
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMain";
             this.Text = "Générateur RDP";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
@@ -470,6 +470,7 @@ namespace RDP_Generator
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picConfigOK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.ResumeLayout(false);
 
@@ -486,7 +487,6 @@ namespace RDP_Generator
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Button cmdOK;
-        private System.Windows.Forms.Button cmdAnnuler;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button cmdConfig;
         private System.Windows.Forms.TextBox txtInfosEtus;
@@ -507,6 +507,7 @@ namespace RDP_Generator
         private System.Windows.Forms.ColumnHeader Ordinateur;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ErrorProvider err;
+        private System.Windows.Forms.PictureBox picConfigOK;
     }
 }
 

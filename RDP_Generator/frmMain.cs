@@ -14,15 +14,22 @@ namespace RDP_Generator
 {
     public partial class frmMain : Form
     {
+        private string destination = "";
+        private string fichierEtudiants = "";
+
         public frmMain()
         {
             InitializeComponent();
-            cmdAnnuler.FlatAppearance.BorderSize = 0;
         }
 
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
 
         private void pnlHeader_MouseDown(object sender, MouseEventArgs e)
         {
@@ -47,6 +54,9 @@ namespace RDP_Generator
 
         private void cmdQuitter_Click(object sender, EventArgs e)
         {
+            if (File.Exists(Environment.CurrentDirectory + "\\configTemp.rdp"))
+                File.Delete(Environment.CurrentDirectory + "\\configTemp.rdp");
+
             Application.Exit();
         }
 
@@ -64,6 +74,17 @@ namespace RDP_Generator
         {
             frmConfig form = new frmConfig();
             form.ShowDialog();
+
+            if (File.Exists(Environment.CurrentDirectory + "\\configTemp.rdp"))
+            {
+                picConfigOK.BackgroundImage = Properties.Resources.check_ok;
+                picConfigOK.Visible = true;
+            }
+            else
+            {
+                picConfigOK.BackgroundImage = Properties.Resources.check_err;
+                picConfigOK.Visible = true;
+            }
         }
 
         private void cmdParcourirDest_Click(object sender, EventArgs e)
@@ -72,6 +93,8 @@ namespace RDP_Generator
             {
                 string filename = "";
                 FolderBrowserDialog dialog = new FolderBrowserDialog();
+                dialog.SelectedPath = Environment.CurrentDirectory;
+                dialog.Description = "Veuillez sélectionner le dossier de destination.";
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -83,7 +106,11 @@ namespace RDP_Generator
                 }
 
                 ListView lv = new ListView();
-                txtDestination.Text = filename;
+                destination = filename;
+                //txtDestination.Text = filename;
+
+                string[] folders = filename.Split('\\');
+                txtDestination.Text = folders[folders.Length - 1] + "\\";
             }
             catch (Exception ex)
             {
@@ -93,7 +120,8 @@ namespace RDP_Generator
 
         private void readCSV()
         {
-            using (var reader = new StreamReader(@txtInfosEtus.Text))
+            //using (var reader = new StreamReader(@txtInfosEtus.Text))
+            using (var reader = new StreamReader(fichierEtudiants))
             {
                 var nbr = 0;
                 ListViewItem ligne = new ListViewItem();
@@ -134,7 +162,11 @@ namespace RDP_Generator
                 }
 
                 ListView lv = new ListView();
-                txtInfosEtus.Text = filename;
+                fichierEtudiants = filename;
+
+                string[] folders = filename.Split('\\');
+                txtInfosEtus.Text = folders[folders.Length - 1];
+
                 lvEtus.Items.Clear();
                 readCSV();
             }
@@ -221,7 +253,7 @@ namespace RDP_Generator
             foreach (ListViewItem etudiant in lvEtus.Items)
             {
                 //string destination = txtDestination.Text.Replace("\\\\", "\\");
-                FileStream fsWriter = new FileStream(txtDestination.Text + "\\\\" + etudiant.SubItems[0].Text + ".rdp", FileMode.Create, FileAccess.Write, FileShare.None);
+                FileStream fsWriter = new FileStream(destination + "\\\\" + etudiant.SubItems[0].Text + ".rdp", FileMode.Create, FileAccess.Write, FileShare.None);
                 StreamWriter writer = new StreamWriter(fsWriter);
 
                 string line = "";
@@ -264,6 +296,8 @@ namespace RDP_Generator
                 lvEtus.Items.Clear();
                 txtDestination.Text = "";
                 txtInfosEtus.Text = "";
+                picConfigOK.Visible = false;
+                err.Clear();
             }
         }
 
