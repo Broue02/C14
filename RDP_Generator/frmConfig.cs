@@ -146,6 +146,12 @@ namespace RDP_Generator
             {
                 ligne = new ListViewItem(config.settingName);
 
+                if (config.settingName == "domaine")
+                {
+                    txtDomaine.Text = config.settingName;
+                    continue;
+                }
+
                 if (config.settingType == "i")
                 {
                     ligne.SubItems.Add("Integer");
@@ -194,6 +200,9 @@ namespace RDP_Generator
                         domaine = "domaine:s:@" + txtDomaine.Text.Trim() + "\n";
                         saveSetting = domaine;
                     }
+
+                    if (File.Exists(sfd.FileName))
+                        File.Delete(sfd.FileName);
 
                     Stream s = File.Open(sfd.FileName, FileMode.CreateNew);
                     StreamWriter sw = new StreamWriter(s);

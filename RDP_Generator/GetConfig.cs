@@ -15,8 +15,6 @@ namespace RDP_Generator
         {
             try
             {
-                //string dossier = "";
-                //string fichierRDPdefault = Environment.CurrentDirectory + "\\test.rdp";
                 ArrayList splitSettings = new ArrayList();
 
                 FileStream fs = new FileStream(dossier, FileMode.Open, FileAccess.Read, FileShare.None);
