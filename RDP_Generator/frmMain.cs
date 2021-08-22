@@ -253,7 +253,7 @@ namespace RDP_Generator
 
             if (configsLines[0].Contains("domaine:s:"))
             {
-                domaine = configsLines[0].Split(':').Last();
+                domaine = "@" + configsLines[0].Split(':').Last();
                 lineCounter = 1;
             }
 
@@ -322,7 +322,7 @@ namespace RDP_Generator
 
             if (configLines[0].Contains("domaine:s:"))
             {
-                domaine = configLines[0].Split(':').Last();
+                domaine = "@" + configLines[0].Split(':').Last();
                 lineCounter = 1;
             }
 
@@ -343,7 +343,16 @@ namespace RDP_Generator
                 }
 
                 if (line.Contains("full address"))
+                {
+                    if (line.Split(':').Last() != "")
+                    {
+                        string[] fullAddress = line.Split(':');
+
+                        line = fullAddress[0] + ':' + fullAddress[1] + ':';
+                        configLines[i] = line;
+                    }
                     line += lvEtus.Items[0].SubItems[2].Text;
+                }
 
                 testConfig.Add(line);
             }
