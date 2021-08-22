@@ -37,8 +37,6 @@ namespace RDP_Generator
             dragging = true;
             dragCursorPoint = Cursor.Position;
             dragFormPoint = this.Location;
-
-            Application.OpenForms
         }
 
         private void pnlHeader_MouseMove(object sender, MouseEventArgs e)
