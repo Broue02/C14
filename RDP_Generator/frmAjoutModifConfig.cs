@@ -22,6 +22,7 @@ namespace RDP_Generator
         {
             InitializeComponent();
             cmdAnnuler.FlatAppearance.BorderSize = 0;
+            this.CenterToScreen();
 
             settingTag = tag;
             actionParam = action;
