@@ -56,7 +56,7 @@ namespace RDP_Generator
             this.cmdParcourir = new System.Windows.Forms.Button();
             this.lblConfig = new System.Windows.Forms.Label();
             this.txtConfig = new System.Windows.Forms.TextBox();
-            this.cmdAnnuler = new System.Windows.Forms.Button();
+            this.cmdFermer = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cmdAjouter = new System.Windows.Forms.Button();
             this.cmdOk = new System.Windows.Forms.Button();
@@ -217,7 +217,7 @@ namespace RDP_Generator
             this.pnlMain.Controls.Add(this.cmdParcourir);
             this.pnlMain.Controls.Add(this.lblConfig);
             this.pnlMain.Controls.Add(this.txtConfig);
-            this.pnlMain.Controls.Add(this.cmdAnnuler);
+            this.pnlMain.Controls.Add(this.cmdFermer);
             this.pnlMain.Controls.Add(this.panel4);
             this.pnlMain.Controls.Add(this.cmdAjouter);
             this.pnlMain.Controls.Add(this.cmdOk);
@@ -406,21 +406,21 @@ namespace RDP_Generator
             this.txtConfig.Size = new System.Drawing.Size(348, 35);
             this.txtConfig.TabIndex = 31;
             // 
-            // cmdAnnuler
+            // cmdFermer
             // 
-            this.cmdAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdAnnuler.BackColor = System.Drawing.Color.Transparent;
-            this.cmdAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdAnnuler.Font = new System.Drawing.Font("Segoe UI Semilight", 14.25F, System.Drawing.FontStyle.Underline);
-            this.cmdAnnuler.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cmdAnnuler.Location = new System.Drawing.Point(362, 617);
-            this.cmdAnnuler.Margin = new System.Windows.Forms.Padding(0);
-            this.cmdAnnuler.Name = "cmdAnnuler";
-            this.cmdAnnuler.Size = new System.Drawing.Size(97, 36);
-            this.cmdAnnuler.TabIndex = 30;
-            this.cmdAnnuler.Text = "Annuler";
-            this.cmdAnnuler.UseVisualStyleBackColor = false;
-            this.cmdAnnuler.Click += new System.EventHandler(this.cmdAnnuler_Click);
+            this.cmdFermer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdFermer.BackColor = System.Drawing.Color.Transparent;
+            this.cmdFermer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdFermer.Font = new System.Drawing.Font("Segoe UI Semilight", 14.25F, System.Drawing.FontStyle.Underline);
+            this.cmdFermer.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cmdFermer.Location = new System.Drawing.Point(362, 617);
+            this.cmdFermer.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdFermer.Name = "cmdFermer";
+            this.cmdFermer.Size = new System.Drawing.Size(97, 36);
+            this.cmdFermer.TabIndex = 30;
+            this.cmdFermer.Text = "Fermer";
+            this.cmdFermer.UseVisualStyleBackColor = false;
+            this.cmdFermer.Click += new System.EventHandler(this.cmdFermer_Click);
             // 
             // panel4
             // 
@@ -499,7 +499,7 @@ namespace RDP_Generator
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Button cmdOk;
-        private System.Windows.Forms.Button cmdAnnuler;
+        private System.Windows.Forms.Button cmdFermer;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtConfig;
         private System.Windows.Forms.PictureBox picLogo;

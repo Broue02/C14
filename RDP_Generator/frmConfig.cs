@@ -20,7 +20,7 @@ namespace RDP_Generator
         public frmConfig()
         {
             InitializeComponent();
-            cmdAnnuler.FlatAppearance.BorderSize = 0;
+            cmdFermer.FlatAppearance.BorderSize = 0;
         }
 
         private bool dragging = false;
@@ -58,9 +58,9 @@ namespace RDP_Generator
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void cmdAnnuler_Click(object sender, EventArgs e)
+        private void cmdFermer_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void cmdAjouter_Click(object sender, EventArgs e)
