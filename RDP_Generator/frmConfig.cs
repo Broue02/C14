@@ -151,7 +151,7 @@ namespace RDP_Generator
                 if (config.settingName == "domaine")
                 {
                     txtDomaine.Clear();
-                    txtDomaine.Text = config.settingValue.Substring(0, config.settingValue.Length - 1);
+                    txtDomaine.Text = config.settingValue;
                     continue;
                 }
 
@@ -354,7 +354,7 @@ namespace RDP_Generator
                 {
                     if (setting.settingName == "domaine")
                     {
-                        string value = setting.settingValue.Substring(1, setting.settingValue.Length - 1);
+                        string value = setting.settingValue;
                         txtDomaine.Text = value;
                         continue;
                     }
