@@ -102,11 +102,16 @@ namespace RDP_Generator
 
             if (txtOrdinateur.Text.Trim() == "")
             {
-                erp.SetError(txtOrdinateur, "nom de l'ordinateur Obligatoire");
+                erp.SetError(txtOrdinateur, "Nom de l'ordinateur obligatoire");
                 ok = false;
             }
 
             return ok;
+        }
+
+        private void frmAjoutEtudiant_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
         }
     }
 }

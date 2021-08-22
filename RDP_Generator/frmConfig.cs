@@ -275,6 +275,7 @@ namespace RDP_Generator
 
         private void frmConfig_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
             splitSettings.Clear();
 
             string fichier = fichierRDPdefault + "\\configTemp.rdp";

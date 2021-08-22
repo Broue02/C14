@@ -326,6 +326,7 @@ namespace RDP_Generator
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAjoutEtudiant";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmAjoutEtudiant_Load);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
