@@ -18,7 +18,7 @@ namespace RDP_Generator
         int settingIndex = 0;
         string Settingsdossier = "";
         ArrayList settings = new ArrayList();
-        public frmAjoutModifConfig(string action, int index, string tag, string dossier)
+        public frmAjoutModifConfig(string action, int index, string tag, ArrayList splitSettings)
         {
             InitializeComponent();
             cmdAnnuler.FlatAppearance.BorderSize = 0;
@@ -26,7 +26,7 @@ namespace RDP_Generator
             settingTag = tag;
             actionParam = action;
             settingIndex = index;
-            Settingsdossier = dossier;
+            settings = splitSettings;
         }
 
         private bool dragging = false;
@@ -81,7 +81,6 @@ namespace RDP_Generator
                     break;
             }
 
-            settings = GetConfig.GetConfigArray(Settingsdossier);
             Remplir_Formulaire();
         }
 

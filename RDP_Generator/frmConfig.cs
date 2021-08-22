@@ -69,7 +69,7 @@ namespace RDP_Generator
             
             if (choice == DialogResult.Yes)
             {
-                frmAjoutModifConfig form = new frmAjoutModifConfig("Ajout", 0 ,"null", dossier);
+                frmAjoutModifConfig form = new frmAjoutModifConfig("Ajout", 0 ,"null", splitSettings);
                 form.ShowDialog();
             }
             
@@ -78,6 +78,8 @@ namespace RDP_Generator
         private void cmdParcourir_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "rdp files (*.rdp)|*.rdp|All files (*.*)|*.*";
+
             DialogResult result = ofd.ShowDialog();
 
             if (result == DialogResult.OK)
@@ -148,7 +150,8 @@ namespace RDP_Generator
 
                 if (config.settingName == "domaine")
                 {
-                    txtDomaine.Text = config.settingValue;
+                    txtDomaine.Clear();
+                    txtDomaine.Text = config.settingValue.Substring(0, config.settingValue.Length - 1);
                     continue;
                 }
 
@@ -168,7 +171,8 @@ namespace RDP_Generator
 
         private void cmdModifier_Click(object sender, EventArgs e)
         {
-            frmAjoutModifConfig frm = new frmAjoutModifConfig("Modif", lvConfigs.SelectedItems[0].Index, lvConfigs.SelectedItems[0].Tag.ToString(), dossier);
+            frmAjoutModifConfig frm = new frmAjoutModifConfig("Modif", lvConfigs.SelectedItems[0].Index, lvConfigs.SelectedItems[0].Tag.ToString(), splitSettings);
+
             frm.ShowDialog();
         }
 
@@ -176,7 +180,13 @@ namespace RDP_Generator
         {
             ListViewItem ligne = lvConfigs.SelectedItems[0];
 
-            splitSettings.RemoveAt(ligne.Index);
+            Settings domaine = (Settings)splitSettings[0];
+
+            if (domaine.settingName == "domaine")
+                splitSettings.RemoveAt(ligne.Index + 1);
+            else
+                splitSettings.RemoveAt(ligne.Index);
+
             lvConfigs.Items[lvConfigs.SelectedItems[0].Index].Remove();
 
             Remplir_ListView();
@@ -197,7 +207,7 @@ namespace RDP_Generator
                 {
                     if (txtDomaine.Text.Trim() != "")
                     {
-                        domaine = "domaine:s:@" + txtDomaine.Text.Trim() + "\n";
+                        domaine = "domaine:s:" + txtDomaine.Text.Trim() + "\n";
                         saveSetting = domaine;
                     }
 
@@ -219,7 +229,6 @@ namespace RDP_Generator
                     s.Close();
 
                     MessageBox.Show("Fichier de configuration enregistré à l'emplacement spécifié!", "Enregistrement...", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
                 }
             }
         }
@@ -239,7 +248,7 @@ namespace RDP_Generator
 
             if (txtDomaine.Text.Trim() != "")
             {
-                domaine = "domaine:s:@" + txtDomaine.Text.Trim() + "\n";
+                domaine = "domaine:s:" + txtDomaine.Text.Trim() + "\n";
                 saveSetting = domaine;
             }
 
@@ -262,6 +271,8 @@ namespace RDP_Generator
         {
             try
             {
+                txtConfig.Text = "Default";
+
                 splitSettings.Clear();
 
                 string[] dc = DefaultConfig.GetDefaultConfig();
