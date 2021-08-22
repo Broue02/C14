@@ -164,20 +164,58 @@ namespace RDP_Generator
             }
         }
 
+        private bool Verif_Form()
+        {
+            err.Clear();
+            bool ok = true;
+
+            if(txtDestination.Text.Trim() == "")
+            {
+                err.SetError(txtDestination, "Destination de configuration obligatoire");
+                ok = false;
+            }
+
+            if(txtInfosEtus.Text.Trim() == "")
+            {
+                err.SetError(txtInfosEtus, "Liste d'étudiants obligatoire");
+                ok = false;
+            }
+
+            if(lvEtus.Items.Count == 0)
+            {
+                err.SetError(lvEtus, "Liste d'étudiants obligatoire");
+                ok = false;
+            }
+
+            if(!File.Exists(Environment.CurrentDirectory + "\\configTemp.rdp"))
+            {
+                err.SetError(cmdConfig, "Fichier de configuration obligatoire");
+                ok = false;
+            }
+
+            return ok;
+        }
+
         private void cmdOK_Click(object sender, EventArgs e)
         {
-            FileStream fs = new FileStream("\\configTemp.rdp", FileMode.OpenOrCreate, FileAccess.Read, FileShare.None);
+            if (!Verif_Form())
+                return;
+
+            FileStream fs = new FileStream(Environment.CurrentDirectory + "\\configTemp.rdp", FileMode.OpenOrCreate, FileAccess.Read, FileShare.None);
             StreamReader reader = new StreamReader(fs);
 
             string allConfigs = reader.ReadToEnd();
-            string[] splitChars = { "\r\n" };
+            string[] splitChars = { "\r\n", "\n" };
 
             string[] configsLines = allConfigs.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
 
             reader.Close();
             fs.Close();
 
-            Verifier_Configuration(configsLines);
+            if (!Verifier_Configuration(configsLines))
+                return;
+
+            //Verifier_Configuration(configsLines);
 
 
             foreach (ListViewItem etudiant in lvEtus.Items)
@@ -188,7 +226,8 @@ namespace RDP_Generator
 
                 string line = "";
 
-                foreach(string lineRaw in configsLines) {
+                foreach (string lineRaw in configsLines)
+                {
 
                     // *******************************
                     // Gérer Hostname (rajouter potentiellement à username et full address)
@@ -206,23 +245,35 @@ namespace RDP_Generator
 
 
                 }
-                
+
                 writer.Close();
                 fsWriter.Close();
             }
 
-            Verifier_Configuration(configsLines);
+            File.Delete(Environment.CurrentDirectory + "\\configTemp.rdp");
 
-            File.Delete("\\configTemp.rdp");
+            DialogResult result;
+
+            result = MessageBox.Show("Création des configurations réussie! \n\nVoulez-vous quitter le programme?", "Succès!",
+                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+                this.Close();
+            else
+            {
+                lvEtus.Items.Clear();
+                txtDestination.Text = "";
+                txtInfosEtus.Text = "";
+            }
         }
 
-        private void Verifier_Configuration(string[] configLines)
+        private bool Verifier_Configuration(string[] configLines)
         {
             string line = "";
             ArrayList testConfig = new ArrayList();
 
             if (lvEtus.Items.Count == 0)
-                return;
+                return false;
 
             for(int i = 0; i < configLines.Length; i++)
             {
@@ -238,7 +289,14 @@ namespace RDP_Generator
             }
 
             frmVerif frm = new frmVerif(testConfig);
-            frm.ShowDialog();
+
+            DialogResult result;
+            result = frm.ShowDialog();
+
+            if (result == DialogResult.OK)
+                return true;
+            else
+                return false;
         }
     }
 }

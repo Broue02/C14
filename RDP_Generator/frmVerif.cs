@@ -17,6 +17,8 @@ namespace RDP_Generator
         string dossier = "";
         string fichierRDPdefault = Environment.CurrentDirectory + "\\test.rdp";
         ArrayList splitSettings = new ArrayList();
+        public DialogResult result;
+
         public frmVerif(ArrayList configList)
         {
             InitializeComponent();
@@ -61,19 +63,10 @@ namespace RDP_Generator
 
         private void cmdAnnuler_Click(object sender, EventArgs e)
         {
+            //this.DialogResult = DialogResult.Cancel;
 
+            this.Close();
         }
-
-        
-
-       
-
-        private void frmConfig_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        
 
 
         private void Remplir_ListView()
@@ -132,6 +125,20 @@ namespace RDP_Generator
                     s.Close();
                 }
             }
+        }
+
+        private void frmVerif_Load(object sender, EventArgs e)
+        {
+            Remplir_ListView();
+            cmdOk.DialogResult = DialogResult.OK;
+            cmdAnnuler.DialogResult = DialogResult.Cancel;
+            cmdQuitter.DialogResult = DialogResult.Cancel;
+
+        }
+
+        private void cmdOk_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

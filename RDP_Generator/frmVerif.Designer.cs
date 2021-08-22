@@ -40,15 +40,14 @@ namespace RDP_Generator
             this.button1 = new System.Windows.Forms.Button();
             this.lblHeader = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lblConfigLV = new System.Windows.Forms.Label();
             this.lvConfigs = new System.Windows.Forms.ListView();
             this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_valeur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblConfig = new System.Windows.Forms.Label();
             this.cmdAnnuler = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cmdOk = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel16.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -207,6 +206,17 @@ namespace RDP_Generator
             this.pnlMain.Size = new System.Drawing.Size(598, 665);
             this.pnlMain.TabIndex = 5;
             // 
+            // panel1
+            // 
+            this.panel1.AutoSize = true;
+            this.panel1.BackColor = System.Drawing.Color.Snow;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(10, 145);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(575, 2);
+            this.panel1.TabIndex = 43;
+            this.panel1.Tag = "div";
+            // 
             // lblConfigLV
             // 
             this.lblConfigLV.AutoSize = true;
@@ -220,8 +230,7 @@ namespace RDP_Generator
             // lvConfigs
             // 
             this.lvConfigs.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col_name,
-            this.col_valeur});
+            this.col_name});
             this.lvConfigs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvConfigs.FullRowSelect = true;
             this.lvConfigs.GridLines = true;
@@ -236,12 +245,7 @@ namespace RDP_Generator
             // col_name
             // 
             this.col_name.Text = "Configuration";
-            this.col_name.Width = 280;
-            // 
-            // col_valeur
-            // 
-            this.col_valeur.Text = "Valeur";
-            this.col_valeur.Width = 200;
+            this.col_name.Width = 475;
             // 
             // lblConfig
             // 
@@ -295,29 +299,21 @@ namespace RDP_Generator
             this.cmdOk.TabIndex = 25;
             this.cmdOk.Text = "OK";
             this.cmdOk.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.AutoSize = true;
-            this.panel1.BackColor = System.Drawing.Color.Snow;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(10, 145);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(575, 2);
-            this.panel1.TabIndex = 43;
-            this.panel1.Tag = "div";
+            this.cmdOk.Click += new System.EventHandler(this.cmdOk_Click);
             // 
             // frmVerif
             // 
+            this.AcceptButton = this.cmdOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdAnnuler;
             this.ClientSize = new System.Drawing.Size(598, 665);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.panel16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVerif";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.frmConfig_Load);
+            this.Text = "Vérification";
+            this.Load += new System.EventHandler(this.frmVerif_Load);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
@@ -348,7 +344,6 @@ namespace RDP_Generator
         private System.Windows.Forms.Label lblConfigLV;
         private System.Windows.Forms.ListView lvConfigs;
         private System.Windows.Forms.ColumnHeader col_name;
-        private System.Windows.Forms.ColumnHeader col_valeur;
         private System.Windows.Forms.Panel panel1;
     }
 }

@@ -29,6 +29,7 @@ namespace RDP_Generator
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitre = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
@@ -59,10 +60,12 @@ namespace RDP_Generator
             this.panel4 = new System.Windows.Forms.Panel();
             this.cmdConfig = new System.Windows.Forms.Button();
             this.cmdOK = new System.Windows.Forms.Button();
+            this.err = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel16.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pnlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitre
@@ -446,6 +449,10 @@ namespace RDP_Generator
             this.cmdOK.UseVisualStyleBackColor = false;
             this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
             // 
+            // err
+            // 
+            this.err.ContainerControl = this;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,6 +470,7 @@ namespace RDP_Generator
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -498,6 +506,7 @@ namespace RDP_Generator
         private System.Windows.Forms.ColumnHeader col_courriel;
         private System.Windows.Forms.ColumnHeader Ordinateur;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ErrorProvider err;
     }
 }
 
