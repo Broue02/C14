@@ -168,7 +168,7 @@ namespace RDP_Generator
                 ok = false;
             }
 
-            if (txtValue.Text.Trim() == "")
+            if (cmbType.Text == "Integer" && txtValue.Text.Trim() == "")
             {
                 erp.SetError(txtValue, "Valeur du parametre obligatoire");
                 ok = false;
