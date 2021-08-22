@@ -231,6 +231,7 @@ namespace RDP_Generator
             // cmdModifier
             // 
             this.cmdModifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
+            this.cmdModifier.Enabled = false;
             this.cmdModifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdModifier.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdModifier.ForeColor = System.Drawing.Color.Snow;
@@ -246,6 +247,7 @@ namespace RDP_Generator
             // cmdDefaut
             // 
             this.cmdDefaut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
+            this.cmdDefaut.Enabled = false;
             this.cmdDefaut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdDefaut.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdDefaut.ForeColor = System.Drawing.Color.Snow;
@@ -304,6 +306,7 @@ namespace RDP_Generator
             // cmdEnregistrer
             // 
             this.cmdEnregistrer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
+            this.cmdEnregistrer.Enabled = false;
             this.cmdEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdEnregistrer.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdEnregistrer.ForeColor = System.Drawing.Color.Snow;
@@ -432,6 +435,7 @@ namespace RDP_Generator
             // cmdAjouter
             // 
             this.cmdAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
+            this.cmdAjouter.Enabled = false;
             this.cmdAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAjouter.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdAjouter.ForeColor = System.Drawing.Color.Snow;
@@ -448,6 +452,7 @@ namespace RDP_Generator
             // 
             this.cmdOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(156)))), ((int)(((byte)(100)))));
+            this.cmdOk.Enabled = false;
             this.cmdOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdOk.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdOk.ForeColor = System.Drawing.Color.Snow;
@@ -458,6 +463,7 @@ namespace RDP_Generator
             this.cmdOk.TabIndex = 25;
             this.cmdOk.Text = "OK";
             this.cmdOk.UseVisualStyleBackColor = false;
+            this.cmdOk.Click += new System.EventHandler(this.cmdOk_Click);
             // 
             // frmConfig
             // 
@@ -468,8 +474,7 @@ namespace RDP_Generator
             this.Controls.Add(this.panel16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmConfig";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.frmConfig_Load);
+            this.Text = "Configuration";
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.pnlHeader.ResumeLayout(false);

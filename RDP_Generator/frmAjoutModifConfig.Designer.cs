@@ -41,6 +41,7 @@ namespace RDP_Generator
             this.button1 = new System.Windows.Forms.Button();
             this.lblHeader = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.lblId = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtValue = new System.Windows.Forms.TextBox();
             this.cmbType = new System.Windows.Forms.ComboBox();
@@ -51,7 +52,6 @@ namespace RDP_Generator
             this.cmdAnnuler = new System.Windows.Forms.Button();
             this.cmdOk = new System.Windows.Forms.Button();
             this.erp = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblId = new System.Windows.Forms.Label();
             this.panel16.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -214,6 +214,15 @@ namespace RDP_Generator
             this.pnlMain.Size = new System.Drawing.Size(598, 273);
             this.pnlMain.TabIndex = 5;
             // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(23, 247);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(0, 13);
+            this.lblId.TabIndex = 52;
+            this.lblId.Visible = false;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -321,15 +330,6 @@ namespace RDP_Generator
             // 
             this.erp.ContainerControl = this;
             // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(23, 247);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(0, 13);
-            this.lblId.TabIndex = 52;
-            this.lblId.Visible = false;
-            // 
             // frmAjoutModifConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,7 +339,7 @@ namespace RDP_Generator
             this.Controls.Add(this.panel16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAjoutModifConfig";
-            this.Text = "Form1";
+            this.Text = "Ajout ou Modification config";
             this.Load += new System.EventHandler(this.frmAjoutModifConfig_Load);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();

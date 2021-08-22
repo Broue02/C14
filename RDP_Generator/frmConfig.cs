@@ -15,7 +15,7 @@ namespace RDP_Generator
     public partial class frmConfig : Form
     {
         string dossier = "";
-        string fichierRDPdefault = Environment.CurrentDirectory + "\\test.rdp";
+        string fichierRDPdefault = Environment.CurrentDirectory;
         ArrayList splitSettings = new ArrayList();
         public frmConfig()
         {
@@ -65,8 +65,14 @@ namespace RDP_Generator
 
         private void cmdAjouter_Click(object sender, EventArgs e)
         {
-            frmAjoutModifConfig form = new frmAjoutModifConfig("Ajout", 0 ,"null", dossier);
-            form.ShowDialog();
+            DialogResult choice = MessageBox.Show("Assurez-vous d'entrer des configurations existantes lors de l'ajout d'une ligne de configuration", "Attention!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            
+            if (choice == DialogResult.Yes)
+            {
+                frmAjoutModifConfig form = new frmAjoutModifConfig("Ajout", 0 ,"null", dossier);
+                form.ShowDialog();
+            }
+            
         }
 
         private void cmdParcourir_Click(object sender, EventArgs e)
@@ -77,14 +83,19 @@ namespace RDP_Generator
             if (result == DialogResult.OK)
             {
                 dossier = ofd.FileName;
+
+                string[] dossierSplit = dossier.Split('\\');
+                txtConfig.Text = dossierSplit[dossierSplit.Length - 1];
+
                 splitSettings = GetConfig.GetConfigArray(dossier);
                 Remplir_ListView();
+
+                cmdAjouter.Enabled = true;
+                cmdModifier.Enabled = true;
+                cmdDefaut.Enabled = true;
+                cmdEnregistrer.Enabled = true;
+                cmdOk.Enabled = true;
             }
-        }
-
-        private void frmConfig_Load(object sender, EventArgs e)
-        {
-
         }
 
         public void UpdateElement(Settings element, int index)
@@ -167,15 +178,15 @@ namespace RDP_Generator
         {
             if (splitSettings.Count > 0)
             {
-                SaveFileDialog test = new SaveFileDialog();
-                test.FileName = dossier;
-                test.Title = "Sauvegardez votre fichier RDP:";
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.FileName = dossier;
+                sfd.Title = "Sauvegardez votre fichier RDP:";
 
                 string saveSetting = "";
 
-                if (test.ShowDialog() == DialogResult.OK)
+                if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    Stream s = File.Open(test.FileName, FileMode.CreateNew);
+                    Stream s = File.Open(sfd.FileName, FileMode.CreateNew);
                     StreamWriter sw = new StreamWriter(s);
 
                     foreach (Settings setting in splitSettings)
@@ -187,8 +198,37 @@ namespace RDP_Generator
 
                     sw.Close();
                     s.Close();
+
+                    MessageBox.Show("Fichier de configuration enregistré à l'emplacement spécifié!", "Enregistrement...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
             }
+        }
+
+        private void cmdOk_Click(object sender, EventArgs e)
+        {
+            string fichier = fichierRDPdefault + "\\configTemp.rdp";
+            if (File.Exists(fichier))
+            {
+                File.Delete(fichier);
+            }
+
+            Stream s = File.Open(fichier, FileMode.CreateNew);
+            StreamWriter sw = new StreamWriter(s);
+            string saveSetting = "";
+
+            foreach(Settings setting in splitSettings)
+            {
+                saveSetting += setting.settingName + ":" + setting.settingType + ":" + setting.settingValue + "\n";
+            }
+
+            sw.Write(saveSetting);
+
+            sw.Close();
+            s.Close();
+
+            MessageBox.Show("Fichier de configuration temporaire enregistré!", "Enregistrement...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }
