@@ -83,22 +83,6 @@ namespace RDP_Generator
             }
         }
 
-        private void cmdModifier_Click(object sender, EventArgs e)
-        {
-            frmAjoutModifConfig frm = new frmAjoutModifConfig("Modif", lvConfigs.SelectedItems[0].Index, lvConfigs.SelectedItems[0].Tag.ToString(), dossier);
-            frm.ShowDialog();
-        }
-
-        private void cmdSupprimer_Click(object sender, EventArgs e)
-        {
-            ListViewItem ligne = lvConfigs.SelectedItems[0];
-
-            splitSettings.RemoveAt(ligne.Index);
-            lvConfigs.Items[lvConfigs.SelectedItems[0].Index].Remove();
-
-            Remplir_ListView();
-        }
-
         private void frmVerif_Load(object sender, EventArgs e)
         {
             Remplir_ListView();

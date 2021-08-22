@@ -331,7 +331,16 @@ namespace RDP_Generator
                 line = configLines[i];
 
                 if (line.Contains("username"))
+                {
+                    if (line.Split(':').Last() != "")
+                    {
+                        string[] strUsername = line.Split(':');
+
+                        line = strUsername[0] + ':' + strUsername[1] + ':';
+                        configLines[i] = line;
+                    }
                     line += lvEtus.Items[0].SubItems[0].Text + domaine;
+                }
 
                 if (line.Contains("full address"))
                     line += lvEtus.Items[0].SubItems[2].Text;
