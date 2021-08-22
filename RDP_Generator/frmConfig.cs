@@ -207,6 +207,8 @@ namespace RDP_Generator
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.FileName = dossier;
+                sfd.Filter = "rdp files (*.rdp)|*.rdp";
+                sfd.DefaultExt = "rdp";
                 sfd.Title = "Sauvegardez votre fichier RDP:";
 
                 string saveSetting = "";
