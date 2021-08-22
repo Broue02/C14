@@ -24,7 +24,7 @@ namespace RDP_Generator
 
                 string contenu;
                 string[] rawSettings;
-                string[] splitChars = { "\r\n" };
+                string[] splitChars = { "\r\n", "\n"};
 
                 contenu = sr.ReadToEnd();
 
