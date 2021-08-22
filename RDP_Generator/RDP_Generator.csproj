@@ -59,6 +59,12 @@
     <Compile Include="frmAjoutModifConfig.Designer.cs">
       <DependentUpon>frmAjoutModifConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVerif.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerif.Designer.cs">
+      <DependentUpon>frmVerif.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAjoutModifConfig.resx">
       <DependentUpon>frmAjoutModifConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerif.resx">
+      <DependentUpon>frmVerif.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConfig.resx">
       <DependentUpon>frmConfig.cs</DependentUpon>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -165,7 +166,7 @@ namespace RDP_Generator
 
         private void cmdOK_Click(object sender, EventArgs e)
         {
-            FileStream fs = new FileStream("test.rdp", FileMode.OpenOrCreate, FileAccess.Read, FileShare.None);
+            FileStream fs = new FileStream("\\configTemp.rdp", FileMode.OpenOrCreate, FileAccess.Read, FileShare.None);
             StreamReader reader = new StreamReader(fs);
 
             string allConfigs = reader.ReadToEnd();
@@ -176,8 +177,10 @@ namespace RDP_Generator
             reader.Close();
             fs.Close();
 
+            Verifier_Configuration(configsLines);
 
-            foreach(ListViewItem etudiant in lvEtus.Items)
+
+            foreach (ListViewItem etudiant in lvEtus.Items)
             {
                 //string destination = txtDestination.Text.Replace("\\\\", "\\");
                 FileStream fsWriter = new FileStream(txtDestination.Text + "\\\\" + etudiant.SubItems[0].Text + ".rdp", FileMode.Create, FileAccess.Write, FileShare.None);
@@ -207,6 +210,35 @@ namespace RDP_Generator
                 writer.Close();
                 fsWriter.Close();
             }
+
+            Verifier_Configuration(configsLines);
+
+            File.Delete("\\configTemp.rdp");
+        }
+
+        private void Verifier_Configuration(string[] configLines)
+        {
+            string line = "";
+            ArrayList testConfig = new ArrayList();
+
+            if (lvEtus.Items.Count == 0)
+                return;
+
+            for(int i = 0; i < configLines.Length; i++)
+            {
+                line = configLines[i];
+
+                if (line.Contains("username"))
+                    line += lvEtus.Items[0].SubItems[0].Text;
+
+                if (line.Contains("full address"))
+                    line += lvEtus.Items[0].SubItems[2].Text;
+
+                testConfig.Add(line);
+            }
+
+            frmVerif frm = new frmVerif(testConfig);
+            frm.ShowDialog();
         }
     }
 }
