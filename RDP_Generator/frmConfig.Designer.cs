@@ -247,7 +247,6 @@ namespace RDP_Generator
             // cmdDefaut
             // 
             this.cmdDefaut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(197)))));
-            this.cmdDefaut.Enabled = false;
             this.cmdDefaut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdDefaut.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdDefaut.ForeColor = System.Drawing.Color.Snow;
@@ -258,6 +257,7 @@ namespace RDP_Generator
             this.cmdDefaut.TabIndex = 54;
             this.cmdDefaut.Text = "Défauts";
             this.cmdDefaut.UseVisualStyleBackColor = false;
+            this.cmdDefaut.Click += new System.EventHandler(this.cmdDefaut_Click);
             // 
             // label6
             // 
@@ -475,6 +475,7 @@ namespace RDP_Generator
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmConfig";
             this.Text = "Configuration";
+            this.Load += new System.EventHandler(this.frmConfig_Load);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
