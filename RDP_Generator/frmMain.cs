@@ -108,7 +108,6 @@ namespace RDP_Generator
 
                 ListView lv = new ListView();
                 destination = filename;
-                //txtDestination.Text = filename;
 
                 string[] folders = filename.Split('\\');
                 txtDestination.Text = folders[folders.Length - 1] + "\\";
@@ -121,7 +120,6 @@ namespace RDP_Generator
 
         private void readCSV()
         {
-            //using (var reader = new StreamReader(@txtInfosEtus.Text))
             using (var reader = new StreamReader(fichierEtudiants))
             {
                 var nbr = 0;
@@ -133,7 +131,6 @@ namespace RDP_Generator
                     if (nbr != 0)
                     {
                         ligne = new ListViewItem(values[0]);
-                        ligne.SubItems.Add(values[2]);
                         ligne.SubItems.Add(values[1]);
                         ligne.Tag = nbr;
 
@@ -260,19 +257,13 @@ namespace RDP_Generator
 
             foreach (ListViewItem etudiant in lvEtus.Items)
             {
-                //string destination = txtDestination.Text.Replace("\\\\", "\\");
                 FileStream fsWriter = new FileStream(destination + "\\\\" + etudiant.SubItems[0].Text + ".rdp", FileMode.Create, FileAccess.Write, FileShare.None);
                 StreamWriter writer = new StreamWriter(fsWriter);
 
                 string line = "";
 
-                //foreach (string lineRaw in configsLines)
                 for (int i = lineCounter; i < configsLines.Length; i++)
                 {
-
-                    // *******************************
-                    // Gérer Hostname (rajouter potentiellement à username et full address)
-                    // *******************************
 
                     line = configsLines[i];
 
@@ -280,7 +271,7 @@ namespace RDP_Generator
                         line += etudiant.SubItems[0].Text + domaine;
 
                     if (line.Contains("full address"))
-                        line += etudiant.SubItems[2].Text;
+                        line += etudiant.SubItems[1].Text;
 
                     writer.WriteLine(line);
 
@@ -351,7 +342,7 @@ namespace RDP_Generator
                         line = fullAddress[0] + ':' + fullAddress[1] + ':';
                         configLines[i] = line;
                     }
-                    line += lvEtus.Items[0].SubItems[2].Text;
+                    line += lvEtus.Items[0].SubItems[1].Text;
                 }
 
                 testConfig.Add(line);
@@ -366,6 +357,12 @@ namespace RDP_Generator
                 return true;
             else
                 return false;
+        }
+
+        private void cmdAjouter_Click(object sender, EventArgs e)
+        {
+            frmAjoutEtudiant frm = new frmAjoutEtudiant(lvEtus);
+            frm.ShowDialog();
         }
     }
 }

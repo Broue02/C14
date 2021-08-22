@@ -12,10 +12,14 @@ namespace RDP_Generator
 {
     public partial class frmAjoutEtudiant : Form
     {
-        public frmAjoutEtudiant()
+        ListView lvEtudiants;
+
+        public frmAjoutEtudiant(ListView lvEtu)
         {
             InitializeComponent();
             cmdAnnuler.FlatAppearance.BorderSize = 0;
+
+            lvEtudiants = lvEtu;
         }
 
         private bool dragging = false;
@@ -60,28 +64,23 @@ namespace RDP_Generator
 
         private void cmdOK_Click(object sender, EventArgs e)
         {
-            FormCollection fc = Application.OpenForms;
+            if (!Valider_Form())
+                return;
 
-            foreach( Form f in fc)
-            {
-                if (f.Name == "frmMain")
-                {
-                    frmMain fm = (frmMain)f;
+            string Da, Ordinateur;
 
-                    /*if (Valider_Form() == false)
-                        return;*/
+            Da = txtDA.Text.Trim();
+            Ordinateur = txtOrdinateur.Text.Trim();
 
-                    string Da, Courriel, Ordinateur;
+            ListViewItem item = new ListViewItem();
 
-                    Da = txtDA.Text.Trim();
-                    Courriel = txtCourriel.Text.Trim();
-                    Ordinateur = txtOrdinateur.Text.Trim();
+            item.Text = Da;
+            item.SubItems.Add(Ordinateur);
 
-                    Etudiant etu = new Etudiant(Da, Courriel, Ordinateur);
+            lvEtudiants.Items.Add(item);
 
-                    
-                }
-            }
+            MessageBox.Show("Étudiant(e) ajouté(e) avec succès!", "Succès!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         private bool Valider_Form()
@@ -91,12 +90,6 @@ namespace RDP_Generator
             if (txtDA.Text.Trim() == "")
             {
                 erp.SetError(txtDA, "Da obligatoire");
-                ok = false;
-            }
-
-            if (txtCourriel.Text.Trim() == "")
-            {
-                erp.SetError(txtCourriel, "Courriel obligatoire");
                 ok = false;
             }
 

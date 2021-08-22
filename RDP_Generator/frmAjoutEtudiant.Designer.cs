@@ -41,10 +41,8 @@ namespace RDP_Generator
             this.button1 = new System.Windows.Forms.Button();
             this.lblHeader = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.txtCourriel = new System.Windows.Forms.TextBox();
             this.lblOrdinateur = new System.Windows.Forms.Label();
             this.txtOrdinateur = new System.Windows.Forms.TextBox();
-            this.lblCourriel = new System.Windows.Forms.Label();
             this.lblDA = new System.Windows.Forms.Label();
             this.txtDA = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -196,10 +194,8 @@ namespace RDP_Generator
             // 
             this.pnlMain.BackColor = System.Drawing.Color.Snow;
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMain.Controls.Add(this.txtCourriel);
             this.pnlMain.Controls.Add(this.lblOrdinateur);
             this.pnlMain.Controls.Add(this.txtOrdinateur);
-            this.pnlMain.Controls.Add(this.lblCourriel);
             this.pnlMain.Controls.Add(this.lblDA);
             this.pnlMain.Controls.Add(this.txtDA);
             this.pnlMain.Controls.Add(this.panel4);
@@ -209,23 +205,14 @@ namespace RDP_Generator
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(598, 273);
+            this.pnlMain.Size = new System.Drawing.Size(598, 230);
             this.pnlMain.TabIndex = 5;
-            // 
-            // txtCourriel
-            // 
-            this.txtCourriel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCourriel.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.txtCourriel.Location = new System.Drawing.Point(201, 112);
-            this.txtCourriel.Name = "txtCourriel";
-            this.txtCourriel.Size = new System.Drawing.Size(348, 35);
-            this.txtCourriel.TabIndex = 52;
             // 
             // lblOrdinateur
             // 
             this.lblOrdinateur.AutoSize = true;
             this.lblOrdinateur.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblOrdinateur.Location = new System.Drawing.Point(58, 163);
+            this.lblOrdinateur.Location = new System.Drawing.Point(58, 122);
             this.lblOrdinateur.Name = "lblOrdinateur";
             this.lblOrdinateur.Size = new System.Drawing.Size(111, 25);
             this.lblOrdinateur.TabIndex = 51;
@@ -235,20 +222,10 @@ namespace RDP_Generator
             // 
             this.txtOrdinateur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtOrdinateur.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.txtOrdinateur.Location = new System.Drawing.Point(201, 157);
+            this.txtOrdinateur.Location = new System.Drawing.Point(201, 116);
             this.txtOrdinateur.Name = "txtOrdinateur";
             this.txtOrdinateur.Size = new System.Drawing.Size(348, 35);
             this.txtOrdinateur.TabIndex = 50;
-            // 
-            // lblCourriel
-            // 
-            this.lblCourriel.AutoSize = true;
-            this.lblCourriel.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblCourriel.Location = new System.Drawing.Point(71, 118);
-            this.lblCourriel.Name = "lblCourriel";
-            this.lblCourriel.Size = new System.Drawing.Size(85, 25);
-            this.lblCourriel.TabIndex = 48;
-            this.lblCourriel.Text = "Courriel:";
             // 
             // lblDA
             // 
@@ -274,7 +251,7 @@ namespace RDP_Generator
             this.panel4.AutoSize = true;
             this.panel4.BackColor = System.Drawing.Color.Snow;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Location = new System.Drawing.Point(12, 213);
+            this.panel4.Location = new System.Drawing.Point(12, 166);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(575, 2);
             this.panel4.TabIndex = 44;
@@ -287,7 +264,7 @@ namespace RDP_Generator
             this.cmdAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAnnuler.Font = new System.Drawing.Font("Segoe UI Semilight", 14.25F, System.Drawing.FontStyle.Underline);
             this.cmdAnnuler.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cmdAnnuler.Location = new System.Drawing.Point(361, 227);
+            this.cmdAnnuler.Location = new System.Drawing.Point(361, 180);
             this.cmdAnnuler.Margin = new System.Windows.Forms.Padding(0);
             this.cmdAnnuler.Name = "cmdAnnuler";
             this.cmdAnnuler.Size = new System.Drawing.Size(97, 36);
@@ -303,7 +280,7 @@ namespace RDP_Generator
             this.cmdOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdOK.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdOK.ForeColor = System.Drawing.Color.Snow;
-            this.cmdOK.Location = new System.Drawing.Point(473, 227);
+            this.cmdOK.Location = new System.Drawing.Point(473, 180);
             this.cmdOK.Margin = new System.Windows.Forms.Padding(0);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(101, 36);
@@ -320,7 +297,7 @@ namespace RDP_Generator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 273);
+            this.ClientSize = new System.Drawing.Size(598, 230);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.panel16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -354,12 +331,10 @@ namespace RDP_Generator
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label lblCourriel;
         private System.Windows.Forms.Label lblDA;
         private System.Windows.Forms.TextBox txtDA;
         private System.Windows.Forms.Label lblOrdinateur;
         private System.Windows.Forms.TextBox txtOrdinateur;
-        private System.Windows.Forms.TextBox txtCourriel;
         private System.Windows.Forms.ErrorProvider erp;
     }
 }

@@ -9,13 +9,11 @@ namespace RDP_Generator
     class Etudiant
     {
         public string etuDa;
-        public string etuCourriel;
         public string etuOrdi;
 
-        public Etudiant(string da, string courriel, string ordi)
+        public Etudiant(string da, string ordi)
         {
             etuDa = da;
-            etuCourriel = courriel;
             etuOrdi = ordi;
         }
     }

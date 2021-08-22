@@ -35,17 +35,14 @@ namespace RDP_Generator
             this.button9 = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.picLogo = new System.Windows.Forms.PictureBox();
             this.cmdMinimiser = new System.Windows.Forms.Button();
             this.cmdQuitter = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblHeader = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.picConfigOK = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lvEtus = new System.Windows.Forms.ListView();
             this.col_da = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_courriel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Ordinateur = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmdSupprimer = new System.Windows.Forms.Button();
             this.lblEtus = new System.Windows.Forms.Label();
@@ -61,12 +58,14 @@ namespace RDP_Generator
             this.cmdConfig = new System.Windows.Forms.Button();
             this.cmdOK = new System.Windows.Forms.Button();
             this.err = new System.Windows.Forms.ErrorProvider(this.components);
+            this.picConfigOK = new System.Windows.Forms.PictureBox();
+            this.picLogo = new System.Windows.Forms.PictureBox();
             this.panel16.SuspendLayout();
             this.pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pnlMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picConfigOK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picConfigOK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitre
@@ -132,16 +131,6 @@ namespace RDP_Generator
             this.panel2.Size = new System.Drawing.Size(598, 2);
             this.panel2.TabIndex = 41;
             this.panel2.Tag = "div";
-            // 
-            // picLogo
-            // 
-            this.picLogo.Image = global::RDP_Generator.Properties.Resources.logo_trans;
-            this.picLogo.Location = new System.Drawing.Point(4, 2);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(45, 40);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLogo.TabIndex = 35;
-            this.picLogo.TabStop = false;
             // 
             // cmdMinimiser
             // 
@@ -230,18 +219,6 @@ namespace RDP_Generator
             this.pnlMain.Size = new System.Drawing.Size(598, 665);
             this.pnlMain.TabIndex = 5;
             // 
-            // picConfigOK
-            // 
-            this.picConfigOK.BackColor = System.Drawing.Color.Transparent;
-            this.picConfigOK.BackgroundImage = global::RDP_Generator.Properties.Resources.check_ok;
-            this.picConfigOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picConfigOK.Location = new System.Drawing.Point(380, 121);
-            this.picConfigOK.Name = "picConfigOK";
-            this.picConfigOK.Size = new System.Drawing.Size(35, 35);
-            this.picConfigOK.TabIndex = 49;
-            this.picConfigOK.TabStop = false;
-            this.picConfigOK.Visible = false;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Snow;
@@ -256,15 +233,14 @@ namespace RDP_Generator
             // 
             this.lvEtus.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.col_da,
-            this.col_courriel,
             this.Ordinateur});
             this.lvEtus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvEtus.FullRowSelect = true;
             this.lvEtus.GridLines = true;
             this.lvEtus.HideSelection = false;
-            this.lvEtus.Location = new System.Drawing.Point(23, 188);
+            this.lvEtus.Location = new System.Drawing.Point(83, 187);
             this.lvEtus.Name = "lvEtus";
-            this.lvEtus.Size = new System.Drawing.Size(551, 325);
+            this.lvEtus.Size = new System.Drawing.Size(415, 325);
             this.lvEtus.TabIndex = 47;
             this.lvEtus.UseCompatibleStateImageBehavior = false;
             this.lvEtus.View = System.Windows.Forms.View.Details;
@@ -273,17 +249,12 @@ namespace RDP_Generator
             // col_da
             // 
             this.col_da.Text = "DA";
-            this.col_da.Width = 100;
-            // 
-            // col_courriel
-            // 
-            this.col_courriel.Text = "Courriel";
-            this.col_courriel.Width = 170;
+            this.col_da.Width = 200;
             // 
             // Ordinateur
             // 
             this.Ordinateur.Text = "Ordinateur";
-            this.Ordinateur.Width = 168;
+            this.Ordinateur.Width = 200;
             // 
             // cmdSupprimer
             // 
@@ -305,7 +276,7 @@ namespace RDP_Generator
             // 
             this.lblEtus.AutoSize = true;
             this.lblEtus.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lblEtus.Location = new System.Drawing.Point(16, 160);
+            this.lblEtus.Location = new System.Drawing.Point(62, 159);
             this.lblEtus.Name = "lblEtus";
             this.lblEtus.Size = new System.Drawing.Size(175, 25);
             this.lblEtus.TabIndex = 42;
@@ -385,6 +356,7 @@ namespace RDP_Generator
             this.cmdAjouter.TabIndex = 35;
             this.cmdAjouter.Text = "+";
             this.cmdAjouter.UseVisualStyleBackColor = false;
+            this.cmdAjouter.Click += new System.EventHandler(this.cmdAjouter_Click);
             // 
             // txtDestination
             // 
@@ -452,6 +424,28 @@ namespace RDP_Generator
             // 
             this.err.ContainerControl = this;
             // 
+            // picConfigOK
+            // 
+            this.picConfigOK.BackColor = System.Drawing.Color.Transparent;
+            this.picConfigOK.BackgroundImage = global::RDP_Generator.Properties.Resources.check_ok;
+            this.picConfigOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picConfigOK.Location = new System.Drawing.Point(380, 121);
+            this.picConfigOK.Name = "picConfigOK";
+            this.picConfigOK.Size = new System.Drawing.Size(35, 35);
+            this.picConfigOK.TabIndex = 49;
+            this.picConfigOK.TabStop = false;
+            this.picConfigOK.Visible = false;
+            // 
+            // picLogo
+            // 
+            this.picLogo.Image = global::RDP_Generator.Properties.Resources.logo_trans;
+            this.picLogo.Location = new System.Drawing.Point(4, 2);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(45, 40);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogo.TabIndex = 35;
+            this.picLogo.TabStop = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,11 +461,11 @@ namespace RDP_Generator
             this.panel16.PerformLayout();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picConfigOK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picConfigOK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -503,7 +497,6 @@ namespace RDP_Generator
         private System.Windows.Forms.Button cmdSupprimer;
         private System.Windows.Forms.ListView lvEtus;
         private System.Windows.Forms.ColumnHeader col_da;
-        private System.Windows.Forms.ColumnHeader col_courriel;
         private System.Windows.Forms.ColumnHeader Ordinateur;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ErrorProvider err;
