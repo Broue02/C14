@@ -82,6 +82,8 @@ namespace RDP_Generator
 
             if (result == DialogResult.OK)
             {
+                splitSettings.Clear();
+
                 dossier = ofd.FileName;
 
                 string[] dossierSplit = dossier.Split('\\');
@@ -229,6 +231,99 @@ namespace RDP_Generator
 
             MessageBox.Show("Fichier de configuration temporaire enregistré!", "Enregistrement...", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+        }
+
+        private void cmdDefaut_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                splitSettings.Clear();
+
+                string[] dc = DefaultConfig.GetDefaultConfig();
+                ListViewItem ligne = new ListViewItem();
+                
+                lvConfigs.Items.Clear();
+
+                foreach(string element in dc)
+                {
+                    string[] setting = new string[3];
+
+                    setting = element.Split(':');
+
+                    ligne = new ListViewItem(setting[0]);
+                    ligne.SubItems.Add(setting[1]);
+                    ligne.SubItems.Add(setting[2]);
+
+                    Settings settingObj = new Settings(setting[0], setting[1], setting[2]);
+                    splitSettings.Add(settingObj);
+
+                    lvConfigs.Items.Add(ligne);
+                }
+
+                cmdEnregistrer.Enabled = true;
+                cmdOk.Enabled = true;
+                cmdAjouter.Enabled = true;
+                cmdModifier.Enabled = true;
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Erreur survenue lors du chargement de configuration par défaut.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
+        }
+
+        private void frmConfig_Load(object sender, EventArgs e)
+        {
+            splitSettings.Clear();
+
+            string fichier = fichierRDPdefault + "\\configTemp.rdp";
+            if (File.Exists(fichier))
+            {
+                FileStream fs = new FileStream(fichier, FileMode.Open, FileAccess.Read, FileShare.None);
+                StreamReader sr = new StreamReader(fs);
+
+                string contenu;
+                string[] rawSettings;
+                string[] splitChars = { "\r\n", "\n" };
+
+                contenu = sr.ReadToEnd();
+
+                sr.Close();
+                fs.Close();
+
+                rawSettings = contenu.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (string line in rawSettings)
+                {
+                    string[] ligneSetting = new string[3];
+
+                    ligneSetting = line.Split(':');
+
+                    if (ligneSetting[2] == "")
+                    {
+                        ligneSetting[2] = " ";
+                    }
+
+                    Settings setting = new Settings(ligneSetting[0], ligneSetting[1], ligneSetting[2]);
+                    splitSettings.Add(setting);
+                }
+
+                ListViewItem ligne = new ListViewItem();
+
+                foreach(Settings setting in splitSettings)
+                {
+                    ligne = new ListViewItem(setting.settingName);
+                    ligne.SubItems.Add(setting.settingType);
+                    ligne.SubItems.Add(setting.settingValue);
+
+                    lvConfigs.Items.Add(ligne);
+                }
+
+                cmdAjouter.Enabled = true;
+                cmdModifier.Enabled = true;
+                cmdEnregistrer.Enabled = true;
+                cmdOk.Enabled = true;
+            }
         }
     }
 }
