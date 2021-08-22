@@ -180,14 +180,17 @@ namespace RDP_Generator
 
         private void cmdModifier_Click(object sender, EventArgs e)
         {
-            frmAjoutModifConfig frm = new frmAjoutModifConfig("Modif", lvConfigs.SelectedItems[0].Index, lvConfigs.SelectedItems[0].Tag.ToString(), splitSettings);
+            if (lvConfigs.Items.Count != 0 && lvConfigs.SelectedItems.Count != 0)
+            {
+                frmAjoutModifConfig frm = new frmAjoutModifConfig("Modif", lvConfigs.SelectedItems[0].Index, lvConfigs.SelectedItems[0].Tag.ToString(), splitSettings);
 
-            frm.ShowDialog();
+                frm.ShowDialog();
+            }
         }
 
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
-            if (lvConfigs.Items.Count != 0)
+            if (lvConfigs.Items.Count != 0 && lvConfigs.SelectedItems.Count != 0)
             {
                 ListViewItem ligne = lvConfigs.SelectedItems[0];
 
