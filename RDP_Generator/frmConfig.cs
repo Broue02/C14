@@ -253,6 +253,7 @@ namespace RDP_Generator
                     ligne = new ListViewItem(setting[0]);
                     ligne.SubItems.Add(setting[1]);
                     ligne.SubItems.Add(setting[2]);
+                    ligne.Tag = setting[0];
 
                     Settings settingObj = new Settings(setting[0], setting[1], setting[2]);
                     splitSettings.Add(settingObj);
@@ -279,6 +280,7 @@ namespace RDP_Generator
             string fichier = fichierRDPdefault + "\\configTemp.rdp";
             if (File.Exists(fichier))
             {
+                dossier = fichierRDPdefault + "\\configTemp.rdp";
                 FileStream fs = new FileStream(fichier, FileMode.Open, FileAccess.Read, FileShare.None);
                 StreamReader sr = new StreamReader(fs);
 
@@ -315,6 +317,7 @@ namespace RDP_Generator
                     ligne = new ListViewItem(setting.settingName);
                     ligne.SubItems.Add(setting.settingType);
                     ligne.SubItems.Add(setting.settingValue);
+                    ligne.Tag = setting.settingName;
 
                     lvConfigs.Items.Add(ligne);
                 }
@@ -323,6 +326,8 @@ namespace RDP_Generator
                 cmdModifier.Enabled = true;
                 cmdEnregistrer.Enabled = true;
                 cmdOk.Enabled = true;
+
+                lvConfigs.Items[0].Selected = true;
             }
         }
     }

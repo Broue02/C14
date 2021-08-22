@@ -8,6 +8,8 @@ namespace RDP_Generator
 {
     class DefaultConfig
     {
+        //Dany.... Je suis désolé de cette atrocité...
+        //Juste a ajouter des éléments si la config "Default" ne convient pas aux besoins
         public static string[] GetDefaultConfig()
         {
             string[] config = new string[47];
