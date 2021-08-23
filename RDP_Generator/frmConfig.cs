@@ -23,10 +23,92 @@ namespace RDP_Generator
             cmdVider.FlatAppearance.BorderSize = 0;
         }
 
+        /// <summary>
+        /// Événement Load. Regarde si le fichier temporaire existe. Charge ses infos si c'est le cas, sinon charge les infos par défaut.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmConfig_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+            splitSettings.Clear();
+
+            string fichier = fichierRDPdefault + "\\configTemp.rdp";
+            if (File.Exists(fichier))
+            {
+                txtConfig.Text = "configTemp.rdp";
+                dossier = fichierRDPdefault + "\\configTemp.rdp";
+                FileStream fs = new FileStream(fichier, FileMode.Open, FileAccess.Read, FileShare.None);
+                StreamReader sr = new StreamReader(fs);
+
+                string contenu;
+                string[] rawSettings;
+                string[] splitChars = { "\r\n", "\n" };
+
+                contenu = sr.ReadToEnd();
+
+                sr.Close();
+                fs.Close();
+
+                rawSettings = contenu.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (string line in rawSettings)
+                {
+                    string[] ligneSetting = new string[3];
+
+                    ligneSetting = line.Split(':');
+
+                    if (ligneSetting[2] == "")
+                    {
+                        ligneSetting[2] = " ";
+                    }
+
+                    Settings setting = new Settings(ligneSetting[0], ligneSetting[1], ligneSetting[2]);
+                    splitSettings.Add(setting);
+                }
+
+                ListViewItem ligne = new ListViewItem();
+
+                foreach (Settings setting in splitSettings)
+                {
+                    if (setting.settingName == "domaine")
+                    {
+                        string value = setting.settingValue;
+                        txtDomaine.Text = value;
+                        continue;
+                    }
+
+                    ligne = new ListViewItem(setting.settingName);
+                    ligne.SubItems.Add(setting.settingType);
+                    ligne.SubItems.Add(setting.settingValue);
+                    ligne.Tag = setting.settingName;
+
+                    lvConfigs.Items.Add(ligne);
+                }
+
+                cmdAjouter.Enabled = true;
+                cmdModifier.Enabled = true;
+                cmdEnregistrer.Enabled = true;
+                cmdOk.Enabled = true;
+                cmdSupprimer.Enabled = true;
+
+                lvConfigs.Items[0].Selected = true;
+            }
+            else
+            {
+                cmdDefaut.PerformClick();
+            }
+        }
+
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
 
+        /// <summary>
+        /// Mouse Down du header. Initie le déplacement du formulaire
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlHeader_MouseDown(object sender, MouseEventArgs e)
         {
             dragging = true;
@@ -34,6 +116,11 @@ namespace RDP_Generator
             dragFormPoint = this.Location;
         }
 
+        /// <summary>
+        /// Mouse Move du header. Effectue les calculs et le déplacement du formulaire.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlHeader_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
@@ -43,21 +130,41 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Mouse Up du header. Lève le flag de déplacement.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlHeader_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
         }
 
+        /// <summary>
+        /// Bouton Quitter. Ferme le formulaire sans sauvegarder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Bouton Minimiser. Minimise le programme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdMinimiser_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+        /// <summary>
+        /// Procédure vidant complètement les contrôles du formulaire de configuration.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdVider_Click(object sender, EventArgs e)
         {
             lvConfigs.Items.Clear();
@@ -76,6 +183,11 @@ namespace RDP_Generator
             cmdSupprimer.Enabled = false;
         }
 
+        /// <summary>
+        /// Bouton Ajoute. Ouvre un formulaire AjoutModifConfig pour ajouter une configuration tout en avertissant l'utilisateur.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdAjouter_Click(object sender, EventArgs e)
         {
             DialogResult choice = MessageBox.Show("Assurez-vous d'entrer des configurations existantes lors de l'ajout d'une ligne de configuration", "Attention!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -88,6 +200,11 @@ namespace RDP_Generator
             
         }
 
+        /// <summary>
+        /// Bouton Parcourir pour gabarit de configuration. Ouvre un OpenFileDialog pour avoir le chemin du fichier.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdParcourir_Click(object sender, EventArgs e)
         {
             try
@@ -123,6 +240,11 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Procédure mettant à jour le ListView de configurations
+        /// </summary>
+        /// <param name="element">Informations de config</param>
+        /// <param name="index">Index de la config à changer</param>
         public void UpdateElement(Settings element, int index)
         {
             ListViewItem ligne = new ListViewItem(element.settingName);
@@ -145,6 +267,11 @@ namespace RDP_Generator
             Remplir_ListView();
         }
 
+        /// <summary>
+        /// Procédure ajoutant un élément au ListView de configuration.
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="tag"></param>
         public void AddElement(Settings element, string tag)
         {
             ListViewItem ligne = new ListViewItem(element.settingName);
@@ -159,6 +286,9 @@ namespace RDP_Generator
             Remplir_ListView();
         }
 
+        /// <summary>
+        /// Procédure remplissant le ListView de configuration avec les informations de 'splitSettings'.
+        /// </summary>
         private void Remplir_ListView()
         {
             try
@@ -201,6 +331,11 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Bouton Modifier. Ouvre une instance de AjoutModifConfig pour modifier une ligne de configuration
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdModifier_Click(object sender, EventArgs e)
         {
             if (lvConfigs.Items.Count != 0 && lvConfigs.SelectedItems.Count != 0)
@@ -211,6 +346,11 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Bouton supprimer. Supprimer une ligne de configuration du ListView.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
             if (lvConfigs.Items.Count != 0 && lvConfigs.SelectedItems.Count != 0)
@@ -233,6 +373,11 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Bouton Enregistrer. Enregistre le gabarit de configuration pour usage ultérieur.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdEnregistrer_Click(object sender, EventArgs e)
         {
             if (splitSettings.Count > 0)
@@ -276,6 +421,11 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Bouton OK. Enregistre la configuration actuelle comme fichier temporaire pour aider à la manipulation dans frmMain.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdOk_Click(object sender, EventArgs e)
         {
             string fichier = fichierRDPdefault + "\\configTemp.rdp";
@@ -310,6 +460,11 @@ namespace RDP_Generator
             this.Close();
         }
 
+        /// <summary>
+        /// Bouton Defaut. Charge la configuration par défaut du programme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdDefaut_Click(object sender, EventArgs e)
         {
             try
@@ -354,105 +509,6 @@ namespace RDP_Generator
             }
             
         }
-
-        private void frmConfig_Load(object sender, EventArgs e)
-        {
-            this.CenterToScreen();
-            splitSettings.Clear();
-
-            string fichier = fichierRDPdefault + "\\configTemp.rdp";
-            if (File.Exists(fichier))
-            {
-                txtConfig.Text = "configTemp.rdp";
-                dossier = fichierRDPdefault + "\\configTemp.rdp";
-                FileStream fs = new FileStream(fichier, FileMode.Open, FileAccess.Read, FileShare.None);
-                StreamReader sr = new StreamReader(fs);
-
-                string contenu;
-                string[] rawSettings;
-                string[] splitChars = { "\r\n", "\n" };
-
-                contenu = sr.ReadToEnd();
-
-                sr.Close();
-                fs.Close();
-
-                rawSettings = contenu.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
-
-                foreach (string line in rawSettings)
-                {
-                    string[] ligneSetting = new string[3];
-
-                    ligneSetting = line.Split(':');
-
-                    if (ligneSetting[2] == "")
-                    {
-                        ligneSetting[2] = " ";
-                    }
-
-                    Settings setting = new Settings(ligneSetting[0], ligneSetting[1], ligneSetting[2]);
-                    splitSettings.Add(setting);
-                }
-
-                ListViewItem ligne = new ListViewItem();
-
-                foreach(Settings setting in splitSettings)
-                {
-                    if (setting.settingName == "domaine")
-                    {
-                        string value = setting.settingValue;
-                        txtDomaine.Text = value;
-                        continue;
-                    }
-
-                    ligne = new ListViewItem(setting.settingName);
-                    ligne.SubItems.Add(setting.settingType);
-                    ligne.SubItems.Add(setting.settingValue);
-                    ligne.Tag = setting.settingName;
-
-                    lvConfigs.Items.Add(ligne);
-                }
-
-                cmdAjouter.Enabled = true;
-                cmdModifier.Enabled = true;
-                cmdEnregistrer.Enabled = true;
-                cmdOk.Enabled = true;
-                cmdSupprimer.Enabled = true;
-
-                lvConfigs.Items[0].Selected = true;
-            }
-            else
-            {
-                string[] settings = DefaultConfig.GetDefaultConfig();
-                ListViewItem ligne = new ListViewItem();
-
-                lvConfigs.Items.Clear();
-
-                foreach(string element in settings)
-                {
-                    string[] setting = new string[3];
-                    setting = element.Split(':');
-
-                    ligne = new ListViewItem(setting[0]);
-                    ligne.SubItems.Add(setting[1]);
-                    ligne.SubItems.Add(setting[2]);
-                    ligne.Tag = setting[0];
-
-                    Settings settingObj = new Settings(setting[0], setting[1], setting[2]);
-                    splitSettings.Add(settingObj);
-
-                    lvConfigs.Items.Add(ligne);
-                }
-
-                cmdEnregistrer.Enabled = true;
-                cmdOk.Enabled = true;
-                cmdAjouter.Enabled = true;
-                cmdModifier.Enabled = true;
-                cmdSupprimer.Enabled = true;
-
-                lvConfigs.Items[0].Selected = true;
-            }
-            }
         }
     }
 

@@ -11,6 +11,11 @@ namespace RDP_Generator
 {
     public class GetConfig
     {
+        /// <summary>
+        /// Méthode lisant le fichier de configuration enregistré pour s'en servir comme template
+        /// </summary>
+        /// <param name="dossier">Chemin d'accès au fichier</param>
+        /// <returns>Liste de configurations</returns>
         public static ArrayList GetConfigArray(string dossier)
         {
             try

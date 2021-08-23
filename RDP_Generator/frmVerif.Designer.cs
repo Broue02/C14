@@ -262,6 +262,7 @@ namespace RDP_Generator
             // 
             this.cmdAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdAnnuler.BackColor = System.Drawing.Color.Transparent;
+            this.cmdAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdAnnuler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdAnnuler.Font = new System.Drawing.Font("Segoe UI Semilight", 14.25F, System.Drawing.FontStyle.Underline);
             this.cmdAnnuler.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -272,7 +273,7 @@ namespace RDP_Generator
             this.cmdAnnuler.TabIndex = 30;
             this.cmdAnnuler.Text = "Annuler";
             this.cmdAnnuler.UseVisualStyleBackColor = false;
-            this.cmdAnnuler.Click += new System.EventHandler(this.cmdAnnuler_Click);
+            this.cmdAnnuler.Click += new System.EventHandler(this.cmdQuitter_Click);
             // 
             // panel4
             // 

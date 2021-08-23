@@ -10,6 +10,11 @@ namespace RDP_Generator
     {
         //Dany.... Je suis désolé de cette atrocité...
         //Juste a ajouter des éléments si la config "Default" ne convient pas aux besoins
+
+        /// <summary>
+        /// Méthode retournant la configuration statique par défaut. Mauvaise pratique, mais efficace vu la situation
+        /// </summary>
+        /// <returns>Retourne la liste de configurations par défaut.</returns>
         public static string[] GetDefaultConfig()
         {
             string[] config = new string[48];

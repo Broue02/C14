@@ -271,7 +271,7 @@ namespace RDP_Generator
             this.cmdAnnuler.TabIndex = 30;
             this.cmdAnnuler.Text = "Annuler";
             this.cmdAnnuler.UseVisualStyleBackColor = false;
-            this.cmdAnnuler.Click += new System.EventHandler(this.cmdAnnuler_Click);
+            this.cmdAnnuler.Click += new System.EventHandler(this.cmdQuitter_Click);
             // 
             // cmdOK
             // 

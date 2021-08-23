@@ -27,11 +27,21 @@ namespace RDP_Generator
         private Point dragCursorPoint;
         private Point dragFormPoint;
 
+        /// <summary>
+        /// Événement Load. Centre le formulaire à l'écran
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmMain_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
         }
 
+        /// <summary>
+        /// Mouse Down sur le header. Permet de déplacer le formulaire sur le tiens de la souris.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlHeader_MouseDown(object sender, MouseEventArgs e)
         {
             dragging = true;
@@ -39,6 +49,11 @@ namespace RDP_Generator
             dragFormPoint = this.Location;
         }
 
+        /// <summary>
+        /// Mouse Move sur le header. Effectue le calcul du déplacement du formulaire
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlHeader_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
@@ -48,11 +63,21 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Mouse Up du header. Enlève le flag de déplacement
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlHeader_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
         }
 
+        /// <summary>
+        /// Bouton Quitter. Détruit le fichier temporaire s'il existe.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdQuitter_Click(object sender, EventArgs e)
         {
             if (File.Exists(Environment.CurrentDirectory + "\\configTemp.rdp"))
@@ -61,6 +86,11 @@ namespace RDP_Generator
             Application.Exit();
         }
 
+        /// <summary>
+        /// Bouton Minimiser. Minimise le formulaire.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdMinimiser_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -71,6 +101,11 @@ namespace RDP_Generator
 
         }
 
+        /// <summary>
+        /// Bouton Config. Ouvre le formulaire de Configuration du RDP. Change le PictureBox en conséquence de la configuration présente ou non.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdConfig_Click(object sender, EventArgs e)
         {
             frmConfig form = new frmConfig();
@@ -88,6 +123,11 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Bouton Parcourir Destination. Ouvre un FolderBrowserDialog pour aller chercher l'emplacement de sauvegarde des RDP
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdParcourirDest_Click(object sender, EventArgs e)
         {
             try
@@ -114,6 +154,9 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Procédure lisant le fichier CSV importé et l'affichant dans le tableau d'étudiants.
+        /// </summary>
         private void readCSV()
         {
             using (var reader = new StreamReader(fichierEtudiants))
@@ -137,6 +180,11 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Bouton Parcourir Infos Étudiants. Ouvre un OpenFileDialog pour aller chercher un fichier CSV de données.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdParcourirInfos_Click(object sender, EventArgs e)
         {
             try
@@ -170,6 +218,11 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Bouton Supprimer. Enlève un élément de la liste d'étudiants.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
             if (lvEtus.SelectedItems.Count < 1)
@@ -178,6 +231,11 @@ namespace RDP_Generator
             lvEtus.SelectedItems[0].Remove();
         }
 
+        /// <summary>
+        /// Événement de changement de sélection. Barre ou débarre le bouton supprimer en conséquence de la présence d'étudiants.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lvEtus_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvEtus.SelectedItems.Count == 0)
@@ -190,6 +248,10 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Méthode de vérification des données du formulaire. Vérifie qu'il y a assez d'informations présentes pour créer un RDP
+        /// </summary>
+        /// <returns></returns>
         private bool Verif_Form()
         {
             err.Clear();
@@ -216,8 +278,14 @@ namespace RDP_Generator
             return ok;
         }
 
+        /// <summary>
+        /// Bouton OK. Vérifie le formulaire, ouvre le formulaire de vérification de RDP pour l'utilisateur, puis crée les RDP.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdOK_Click(object sender, EventArgs e)
         {
+            // Vérification du formulaire
             if (!Verif_Form())
                 return;
 
@@ -232,19 +300,21 @@ namespace RDP_Generator
             reader.Close();
             fs.Close();
 
+            // Vérification des configurations pour l'utilsateur.
             if (!Verifier_Configuration(configsLines))
                 return;
 
             string domaine = "";
             int lineCounter = 0;
 
+            // Vérification si la ligne détient les informations de domaine.
             if (configsLines[0].Contains("domaine:s:"))
             {
                 domaine = "@" + configsLines[0].Split(':').Last();
                 lineCounter = 1;
             }
 
-
+            //Parcours chaque étudiant dans le ListView. Crée un RDP pour chacun d'eux selon le fichier de configuration.
             foreach (ListViewItem etudiant in lvEtus.Items)
             {
                 FileStream fsWriter = new FileStream(destination + "\\\\" + etudiant.SubItems[0].Text + ".rdp", FileMode.Create, FileAccess.Write, FileShare.None);
@@ -272,6 +342,7 @@ namespace RDP_Generator
                 fsWriter.Close();
             }
 
+            //Suppression du fichier temporaire et remise à zéro des variables/contrôles.
             File.Delete(Environment.CurrentDirectory + "\\configTemp.rdp");
 
             DialogResult result;
@@ -291,6 +362,11 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Ouvre un formulaire de vérification de la configuration pour l'utilisateur avant la création finale des RDP.
+        /// </summary>
+        /// <param name="configLines">Tableau de toutes les lignes de configuration</param>
+        /// <returns></returns>
         private bool Verifier_Configuration(string[] configLines)
         {
             string line = "";
@@ -307,6 +383,7 @@ namespace RDP_Generator
                 lineCounter = 1;
             }
 
+            // Parcours chacune des lignes de configs. Fait quelques manipulations au besoin.
             for(int i = lineCounter; i < configLines.Length; i++)
             { 
                 line = configLines[i];
@@ -338,6 +415,7 @@ namespace RDP_Generator
                 testConfig.Add(line);
             }
 
+            // Ouverture du formulaire de vérification. 
             frmVerif frm = new frmVerif(testConfig);
 
             DialogResult result;
@@ -349,6 +427,11 @@ namespace RDP_Generator
                 return false;
         }
 
+        /// <summary>
+        /// Bouton Ajouter. Ouvre le formulaire AjoutEtudiant pour créer un nouvel entrée dans le ListView.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdAjouter_Click(object sender, EventArgs e)
         {
             frmAjoutEtudiant frm = new frmAjoutEtudiant(lvEtus);

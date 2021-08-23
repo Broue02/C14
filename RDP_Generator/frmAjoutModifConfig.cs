@@ -18,6 +18,14 @@ namespace RDP_Generator
         int settingIndex = 0;
         string Settingsdossier = "";
         ArrayList settings = new ArrayList();
+
+        /// <summary>
+        /// Initialise les variables et centre le formulaire à l'écran
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="index"></param>
+        /// <param name="tag"></param>
+        /// <param name="splitSettings"></param>
         public frmAjoutModifConfig(string action, int index, string tag, ArrayList splitSettings)
         {
             InitializeComponent();
@@ -34,6 +42,11 @@ namespace RDP_Generator
         private Point dragCursorPoint;
         private Point dragFormPoint;
 
+        /// <summary>
+        /// Mouse Down du header. Initie le déplacement du formulaire
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlHeader_MouseDown(object sender, MouseEventArgs e)
         {
             dragging = true;
@@ -41,6 +54,11 @@ namespace RDP_Generator
             dragFormPoint = this.Location;
         }
 
+        /// <summary>
+        /// Mouse Move du header. Effectue les calculs et le déplacement du formulaire.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlHeader_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
@@ -50,26 +68,51 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Mouse Up du header. Lève le flag de déplacement.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlHeader_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
         }
 
+        /// <summary>
+        /// Bouton Quitter. Ferme le formulaire sans sauvegarder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Bouton minimiser. Minimise le programme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdMinimiser_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+        /// <summary>
+        /// Bouton Annuler. Ferme le formulaire sans sauvegarder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdAnnuler_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Événement Load. Modifie l'action et le label titre selon l'action à effectuer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmAjoutModifConfig_Load(object sender, EventArgs e)
         {
             switch (actionParam)
@@ -85,6 +128,9 @@ namespace RDP_Generator
             Remplir_Formulaire();
         }
 
+        /// <summary>
+        /// Procédure remplissant le formulaire avec les informations de la configuration sur modification
+        /// </summary>
         private void Remplir_Formulaire()
         {
             if (settings is null)
@@ -106,6 +152,11 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Bouton OK. Valide le formulaire et met à jour la configuration par la suite si tout est OK
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdOk_Click(object sender, EventArgs e)
         {
             FormCollection fc = Application.OpenForms;
@@ -161,6 +212,10 @@ namespace RDP_Generator
             this.Close();
         }
 
+        /// <summary>
+        /// Méthode de validation des informations du formulaire.
+        /// </summary>
+        /// <returns></returns>
         private bool Valider_Form()
         {
             bool ok = true;

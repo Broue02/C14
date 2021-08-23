@@ -26,10 +26,30 @@ namespace RDP_Generator
             splitSettings = configList;
         }
 
+        /// <summary>
+        /// Événement Load. Rempli le ListView et initialise le formulaire.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmVerif_Load(object sender, EventArgs e)
+        {
+            Remplir_ListView();
+            cmdOk.DialogResult = DialogResult.OK;
+            cmdAnnuler.DialogResult = DialogResult.Cancel;
+            cmdQuitter.DialogResult = DialogResult.Cancel;
+            this.CenterToScreen();
+
+        }
+
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
 
+        /// <summary>
+        /// Mouse Down du header. Initie le déplacement du formulaire
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlHeader_MouseDown(object sender, MouseEventArgs e)
         {
             dragging = true;
@@ -37,6 +57,11 @@ namespace RDP_Generator
             dragFormPoint = this.Location;
         }
 
+        /// <summary>
+        /// Mouse Move du header. Effectue les calculs et le déplacement du formulaire.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlHeader_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
@@ -46,29 +71,39 @@ namespace RDP_Generator
             }
         }
 
+        /// <summary>
+        /// Mouse Up du header. Lève le flag de déplacement.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlHeader_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
         }
 
+        /// <summary>
+        /// Bouton Quitter. Ferme le formulaire sans sauvegarder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Bouton Minimiser. Minimise le programme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdMinimiser_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void cmdAnnuler_Click(object sender, EventArgs e)
-        {
-            //this.DialogResult = DialogResult.Cancel;
-
-            this.Close();
-        }
-
-
+        /// <summary>
+        /// Procédure remplissant le ListView avec la configuration RDP à montrer à l'utilisateur.
+        /// </summary>
         private void Remplir_ListView()
         {
             lvConfigs.Items.Clear();
@@ -83,16 +118,11 @@ namespace RDP_Generator
             }
         }
 
-        private void frmVerif_Load(object sender, EventArgs e)
-        {
-            Remplir_ListView();
-            cmdOk.DialogResult = DialogResult.OK;
-            cmdAnnuler.DialogResult = DialogResult.Cancel;
-            cmdQuitter.DialogResult = DialogResult.Cancel;
-            this.CenterToScreen();
-
-        }
-
+        /// <summary>
+        /// Bouton OK. Ferme le formulaire en retournant DialogResult.OK
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdOk_Click(object sender, EventArgs e)
         {
             this.Close();
