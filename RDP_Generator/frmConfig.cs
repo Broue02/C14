@@ -36,63 +36,7 @@ namespace RDP_Generator
             string fichier = fichierRDPdefault + "\\configTemp.rdp";
             if (File.Exists(fichier))
             {
-                txtConfig.Text = "configTemp.rdp";
-                dossier = fichierRDPdefault + "\\configTemp.rdp";
-                FileStream fs = new FileStream(fichier, FileMode.Open, FileAccess.Read, FileShare.None);
-                StreamReader sr = new StreamReader(fs);
-
-                string contenu;
-                string[] rawSettings;
-                string[] splitChars = { "\r\n", "\n" };
-
-                contenu = sr.ReadToEnd();
-
-                sr.Close();
-                fs.Close();
-
-                rawSettings = contenu.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
-
-                foreach (string line in rawSettings)
-                {
-                    string[] ligneSetting = new string[3];
-
-                    ligneSetting = line.Split(':');
-
-                    if (ligneSetting[2] == "")
-                    {
-                        ligneSetting[2] = " ";
-                    }
-
-                    Settings setting = new Settings(ligneSetting[0], ligneSetting[1], ligneSetting[2]);
-                    splitSettings.Add(setting);
-                }
-
-                ListViewItem ligne = new ListViewItem();
-
-                foreach (Settings setting in splitSettings)
-                {
-                    if (setting.settingName == "domaine")
-                    {
-                        string value = setting.settingValue;
-                        txtDomaine.Text = value;
-                        continue;
-                    }
-
-                    ligne = new ListViewItem(setting.settingName);
-                    ligne.SubItems.Add(setting.settingType);
-                    ligne.SubItems.Add(setting.settingValue);
-                    ligne.Tag = setting.settingName;
-
-                    lvConfigs.Items.Add(ligne);
-                }
-
-                cmdAjouter.Enabled = true;
-                cmdModifier.Enabled = true;
-                cmdEnregistrer.Enabled = true;
-                cmdOk.Enabled = true;
-                cmdSupprimer.Enabled = true;
-
-                lvConfigs.Items[0].Selected = true;
+                Charger_Template(fichier);
             }
             else
             {
@@ -458,6 +402,71 @@ namespace RDP_Generator
 
             MessageBox.Show("Fichier de configuration temporaire enregistré!", "Enregistrement...", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+        }
+
+        /// <summary>
+        /// Procédure chargeant les informations du gabarit de configurations et les affichant dans le ListView
+        /// </summary>
+        /// <param name="fichier"></param>
+        private void Charger_Template(string fichier)
+        {
+            txtConfig.Text = "configTemp.rdp";
+            dossier = fichierRDPdefault + "\\configTemp.rdp";
+            FileStream fs = new FileStream(fichier, FileMode.Open, FileAccess.Read, FileShare.None);
+            StreamReader sr = new StreamReader(fs);
+
+            string contenu;
+            string[] rawSettings;
+            string[] splitChars = { "\r\n", "\n" };
+
+            contenu = sr.ReadToEnd();
+
+            sr.Close();
+            fs.Close();
+
+            rawSettings = contenu.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string line in rawSettings)
+            {
+                string[] ligneSetting = new string[3];
+
+                ligneSetting = line.Split(':');
+
+                if (ligneSetting[2] == "")
+                {
+                    ligneSetting[2] = " ";
+                }
+
+                Settings setting = new Settings(ligneSetting[0], ligneSetting[1], ligneSetting[2]);
+                splitSettings.Add(setting);
+            }
+
+            ListViewItem ligne = new ListViewItem();
+
+            foreach (Settings setting in splitSettings)
+            {
+                if (setting.settingName == "domaine")
+                {
+                    string value = setting.settingValue;
+                    txtDomaine.Text = value;
+                    continue;
+                }
+
+                ligne = new ListViewItem(setting.settingName);
+                ligne.SubItems.Add(setting.settingType);
+                ligne.SubItems.Add(setting.settingValue);
+                ligne.Tag = setting.settingName;
+
+                lvConfigs.Items.Add(ligne);
+            }
+
+            cmdAjouter.Enabled = true;
+            cmdModifier.Enabled = true;
+            cmdEnregistrer.Enabled = true;
+            cmdOk.Enabled = true;
+            cmdSupprimer.Enabled = true;
+
+            lvConfigs.Items[0].Selected = true;
         }
 
         /// <summary>
