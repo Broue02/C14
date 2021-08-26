@@ -7,7 +7,7 @@
     <ProjectGuid>{6EB96513-EE69-4065-A021-A848C91A472D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>RDP_Generator</RootNamespace>
-    <AssemblyName>RDP_Generator</AssemblyName>
+    <AssemblyName>RDP Multihexa</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\icone.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -131,6 +134,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icone.ico" />
+    <Content Include="logo-trans.ico" />
+    <None Include="Resources\icone.ico" />
+    <None Include="Resources\icone.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,14 @@
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\obj\Release\RDP_Generator.csproj.AssemblyReference.cache
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\obj\Release\RDP_Generator.frmAjoutEtudiant.resources
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\obj\Release\RDP_Generator.frmAjoutModifConfig.resources
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\obj\Release\RDP_Generator.frmVerif.resources
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\obj\Release\RDP_Generator.frmConfig.resources
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\obj\Release\RDP_Generator.frmMain.resources
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\obj\Release\RDP_Generator.Properties.Resources.resources
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\obj\Release\RDP_Generator.csproj.GenerateResource.cache
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\obj\Release\RDP_Generator.csproj.CoreCompileInputs.cache
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\bin\Release\RDP Multihexa.exe.config
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\bin\Release\RDP Multihexa.exe
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\bin\Release\RDP Multihexa.pdb
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\obj\Release\RDP Multihexa.exe
+E:\Visual Studio\C14 - DevOps\Travail Pratique\C14\RDP_Generator\obj\Release\RDP Multihexa.pdb
