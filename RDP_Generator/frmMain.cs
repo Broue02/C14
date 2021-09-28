@@ -341,7 +341,7 @@ namespace RDP_Generator
                 writer.Close();
                 fsWriter.Close();
             }
-
+			//Test
             //Suppression du fichier temporaire et remise à zéro des variables/contrôles.
             File.Delete(Environment.CurrentDirectory + "\\configTemp.rdp");
 
